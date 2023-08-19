@@ -49,6 +49,7 @@ private:
     static bool windowKeys[256];                            // estado das teclas do teclado
     static int  windowMouseX;                               // posição do mouse eixo x
     static int  windowMouseY;                               // posição do mouse eixo y
+    static bool windowCtrl[256];
     
 public:
     Window();                                               // construtor de Window
@@ -76,6 +77,7 @@ public:
     bool KeyUp(int vkcode);                                 // verifica se uma tecla/botão está liberado
     int  MouseX();                                          // retorna posição x do mouse
     int  MouseY();                                          // retorna posição y do mouse
+    bool KeyPress(int vkcode);
 
     COLORREF Color();                                       // retorna a cor de fundo da janela
     void Color(int r, int g, int b);                        // define a cor de fundo da janela
