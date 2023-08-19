@@ -32,7 +32,7 @@ void Balloon::Update() {
 		PopBalloons::scene->Delete();
 		text.str("");
 
-		text << "deletado" << ".\n";;
+		text << "balloon deletado" << ".\n";;
 		OutputDebugString(text.str().c_str());
 	}
 
@@ -45,7 +45,8 @@ void Balloon::Update() {
 }
 
 void Balloon::OnCollision(Object * obj) {
-	if (obj->Type() == PLAYER) {
+	if (obj->Type() == PLAYER || obj->Type() == ATACK) {
 		state = POP;
+		PopBalloons::scene->Remove(obj, ATACK);
 	}
 }

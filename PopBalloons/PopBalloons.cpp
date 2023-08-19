@@ -17,6 +17,9 @@ Scene* PopBalloons::scene = nullptr;
 
 void PopBalloons::Init()
 {
+    background = new Sprite("Resources/background.png");
+    life = new Sprite("Resources/life.png");
+
     scene = new Scene();
 
     Player* player = new Player();
@@ -47,6 +50,8 @@ void PopBalloons::Update()
 
 void PopBalloons::Draw()
 {
+    life->Draw(20, 20, Layer::UPPER);
+    background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     scene->Draw();
     scene->DrawBBox();
 } 
@@ -55,6 +60,8 @@ void PopBalloons::Draw()
 
 void PopBalloons::Finalize()
 {
+    delete life;
+    delete background;
     delete scene;
 }
 

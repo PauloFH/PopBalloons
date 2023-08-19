@@ -18,6 +18,7 @@
 bool Window::windowKeys[256] = { 0 };                       // estado do teclado/mouse
 int  Window::windowMouseX = 0;                              // posição do mouse no eixo x
 int  Window::windowMouseY = 0;                              // posição do mouse no eixo y
+bool Window::windowCtrl[256] = { 0 };
 
 // -------------------------------------------------------------------------------
 // Construtor
@@ -73,6 +74,26 @@ void Window::Size(int width, int height)
     // ajusta a posição da janela para o centro da tela
     windowPosX = GetSystemMetrics(SM_CXSCREEN)/2 - windowWidth/2;
     windowPosY = GetSystemMetrics(SM_CYSCREEN)/2 - windowHeight/2;
+}
+
+// -------------------------------------------------------------------------------
+
+bool Window::KeyPress(int vkcode)
+{
+    if (windowCtrl[vkcode])
+    {
+        if (KeyDown(vkcode))
+        {
+            windowCtrl[vkcode] = false;
+            return true;
+        }
+    }
+    else if (KeyUp(vkcode))
+    {
+        windowCtrl[vkcode] = true;
+    }
+
+    return false;
 }
 
 // -------------------------------------------------------------------------------

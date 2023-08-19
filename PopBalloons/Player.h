@@ -7,6 +7,7 @@ private:
 	TileSet* tileset;
 	Animation* animation;
 	Sprite* sprite;
+	Image* atack;
 	int vel;
 
 public:
