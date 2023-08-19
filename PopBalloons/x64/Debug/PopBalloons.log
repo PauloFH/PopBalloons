@@ -1,6 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: O diretório intermediário (x64\Debug\) contém arquivos compartilhados de outro projeto (FontDemo.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
-  Balloon.cpp
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Balloon.cpp(1,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
+  PopBalloons.cpp
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Balloon.h(1,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Balloon.h(2,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
   PopBalloons.vcxproj -> C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\x64\Debug\PopBalloons.exe

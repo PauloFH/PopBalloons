@@ -9,37 +9,26 @@
 //
 **********************************************************************************/
 
-#include "Engine.h"
-#include "Game.h"
-#include "Font.h"
-#include "Sprite.h"
-#include "Resources.h"
-#include "Scene.h"
+#include "PopBalloons.h"
 #include "Balloon.h"
+#include "Player.h"
 
-// ------------------------------------------------------------------------------
-
-class PopBalloons: public Game
-{
-private:
-    Scene* scene;
-    Balloon* balloon;
-    
-public:
-    void Init();
-    void Update();
-    void Draw();
-    void Finalize();
-};
-
-// ------------------------------------------------------------------------------
+Scene* PopBalloons::scene = nullptr;
 
 void PopBalloons::Init()
 {
     scene = new Scene();
-    balloon = new Balloon();
 
+    Player* player = new Player();
+    scene->Add(player, MOVING);
+
+    Balloon* balloon = new Balloon();
     scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(100, 300);
+    scene->Add(balloon, MOVING);
+
 }
 
 // ------------------------------------------------------------------------------
@@ -59,6 +48,7 @@ void PopBalloons::Update()
 void PopBalloons::Draw()
 {
     scene->Draw();
+    scene->DrawBBox();
 } 
 
 // ------------------------------------------------------------------------------

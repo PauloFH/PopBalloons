@@ -2,6 +2,10 @@
 #include "Sprite.h";
 #include "TileSet.h"
 #include "Animation.h"
+#include <sstream>
+using std::stringstream;
+
+enum State {NORMAL, POP};
 
 class Balloon : public Object {
 
@@ -9,6 +13,9 @@ private:
 	TileSet* tileset = nullptr;
 	Sprite* sprite = nullptr;
 	Animation* animation = nullptr;
+	uint state = NORMAL;
+	stringstream text;
+	int vel;
 
 public:
 	Balloon();
@@ -16,7 +23,7 @@ public:
 
 	void Update();
 	void Draw();
-	void OnCollision();
+	void OnCollision(Object * obj);
 
 };
 

@@ -1,10 +1,22 @@
-#include "Balloon.h";
+#include "Balloon.h"
+#include "PopBalloons.h"
 
 Balloon::Balloon() {
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
 	animation = new Animation(tileset, 0.05f, true);
+	vel = 40;
+
+	uint normal[2] = { 0, 1 };
+	uint pop[6] = { 0, 1, 2, 3, 4, 5 };
+
+	animation->Add(NORMAL, normal, 2);
+	animation->Add(POP, pop, 6);
 
 	MoveTo(window->CenterX(), window->CenterY(), 0.0f);
+
+	BBox(new Rect(-28, -38, 27, 37));
+	type = BALLOON;
+
 }
 
 Balloon::~Balloon() {
@@ -13,9 +25,27 @@ Balloon::~Balloon() {
 }
 
 void Balloon::Update() {
+
+	Translate(0, -vel * gameTime);
+
+	if (y + tileset->TileHeight() < 0) {
+		PopBalloons::scene->Delete();
+		text.str("");
+
+		text << "deletado" << ".\n";;
+		OutputDebugString(text.str().c_str());
+	}
+
+	animation->Select(state);
 	animation->NextFrame();
+
+	if (animation->Frame() == 5) {
+		PopBalloons::scene->Delete();
+	}
 }
 
-void Balloon::OnCollision() {
-
+void Balloon::OnCollision(Object * obj) {
+	if (obj->Type() == PLAYER) {
+		state = POP;
+	}
 }
