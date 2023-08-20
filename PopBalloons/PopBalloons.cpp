@@ -12,15 +12,21 @@
 #include "PopBalloons.h"
 #include "Balloon.h"
 #include "Player.h"
+#include "Cat.h"
 
 Scene* PopBalloons::scene = nullptr;
 
 void PopBalloons::Init()
 {
     background = new Sprite("Resources/background.png");
+    gram = new Sprite("Resources/gram.png");
+    wall = new Sprite("Resources/wall.png");
     life = new Sprite("Resources/life.png");
 
     scene = new Scene();
+
+    Cat* cat = new Cat();
+    scene->Add(cat, STATIC);
 
     Player* player = new Player();
     scene->Add(player, MOVING);
@@ -29,7 +35,51 @@ void PopBalloons::Init()
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(100, 300);
+    balloon->MoveTo(100, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(200, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(300, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(400, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(500, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(600, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(700, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(800, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(900, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(1000, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(1100, 800);
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(1200, 800);
     scene->Add(balloon, MOVING);
 
 }
@@ -52,6 +102,8 @@ void PopBalloons::Draw()
 {
     life->Draw(20, 20, Layer::UPPER);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
+    wall->Draw(window->CenterX(), window->CenterY() + 375, Layer::MIDDLE);
+    gram->Draw(window->CenterX(), window->CenterY() + 450, Layer::MIDDLE);
     scene->Draw();
     scene->DrawBBox();
 } 
@@ -61,6 +113,8 @@ void PopBalloons::Draw()
 void PopBalloons::Finalize()
 {
     delete life;
+    delete wall;
+    delete gram;
     delete background;
     delete scene;
 }
@@ -76,7 +130,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(600, 474);
+    engine->window->Size(1280, 896);
     engine->window->Color(200, 24, 240);
     engine->window->Title("Font Demo");
     engine->window->Icon(IDI_ICON);

@@ -1,5 +1,7 @@
 #include "Object.h"
 #include "Animation.h"
+#include <sstream>
+using std::stringstream;
 
 
 class Player : public Object {
@@ -9,6 +11,9 @@ private:
 	Sprite* sprite;
 	Image* atack;
 	int vel;
+	stringstream text;
+	bool spellQ;
+	TileSet* tileSpellQ;
 
 public:
 	Player();
