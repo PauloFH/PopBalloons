@@ -10,14 +10,17 @@ enum ObjTypes
 {
     PLAYER,           
     BALLOON,
-    ATACK
+    ATACK,
+    SPELL
 };
 
 class PopBalloons : public Game
 {
 private:
     Sprite* background;
+    Sprite* gram;
     Sprite* life;
+    Sprite* wall;
 
 public:
     static Scene* scene;

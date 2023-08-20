@@ -12,7 +12,7 @@ Balloon::Balloon() {
 	animation->Add(NORMAL, normal, 2);
 	animation->Add(POP, pop, 6);
 
-	MoveTo(window->CenterX(), window->CenterY(), 0.0f);
+	MoveTo(window->CenterX(), window->CenterY(), Layer::LOWER);
 
 	BBox(new Rect(-28, -38, 27, 37));
 	type = BALLOON;
@@ -45,8 +45,11 @@ void Balloon::Update() {
 }
 
 void Balloon::OnCollision(Object * obj) {
-	if (obj->Type() == PLAYER || obj->Type() == ATACK) {
+	if (obj->Type() == ATACK) {
 		state = POP;
 		PopBalloons::scene->Remove(obj, ATACK);
+	}
+	if (obj->Type() == SPELL) {
+		state = POP;
 	}
 }
