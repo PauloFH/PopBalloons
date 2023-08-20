@@ -94,3 +94,10 @@ void Player::Update() {
 void Player::OnCollision(Object* obj) {
 
 }
+
+Player::Player(TileSet *  tileset) {
+	this->tileset = tileset;
+	animation = new Animation(this->tileset, 0.15f, true);
+	MoveTo(window->CenterX(), window->CenterY() + 380, Layer::FRONT);
+
+}
