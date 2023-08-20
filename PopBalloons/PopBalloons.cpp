@@ -10,6 +10,7 @@
 **********************************************************************************/
 
 #include "PopBalloons.h"
+#include "GameOver.h"
 #include "Balloon.h"
 #include "Player.h"
 #include "Cat.h"
@@ -148,6 +149,9 @@ void PopBalloons::Update()
 
     scene->Update();
     scene->CollisionDetection();
+
+    if (window->KeyDown('N'))
+        Engine::Next<GameOver>();
 } 
 
 // ------------------------------------------------------------------------------
@@ -157,7 +161,7 @@ void PopBalloons::Draw()
     life->Draw(20, 20, Layer::UPPER);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     wall->Draw(window->CenterX(), window->CenterY() + 375, Layer::MIDDLE);
-    gram->Draw(window->CenterX(), window->CenterY() + 450, Layer::MIDDLE);
+    gram->Draw(window->CenterX(), window->CenterY() + 450, Layer::UPPER);
     scene->Draw();
 } 
 
