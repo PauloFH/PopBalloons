@@ -89,6 +89,18 @@ void Player::Update() {
 		spellW = false;
 	}
 
+	// Duplo atk
+	if (window->KeyPress(VK_RBUTTON)) {
+		std::vector<Atack*> hits;
+		hits.push_back(new Atack(atack, window->MouseY()));
+		hits.push_back(new Atack(atack, window->MouseY()));
+		hits[0]->MoveTo(x - 10, y);
+		hits[1]->MoveTo(x + 10, y);
+
+		PopBalloons::scene->Add(hits[0], MOVING);
+		PopBalloons::scene->Add(hits[1], MOVING);
+	}
+
 }
 
 void Player::OnCollision(Object* obj) {
