@@ -11,7 +11,8 @@ enum ObjTypes
     PLAYER,           
     BALLOON,
     ATACK,
-    SPELL
+    SPELLQ,
+    SPELLW
 };
 
 class PopBalloons : public Game
