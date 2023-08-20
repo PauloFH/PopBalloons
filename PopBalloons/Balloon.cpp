@@ -4,7 +4,7 @@
 
 Balloon::Balloon() {
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
-	animation = new Animation(tileset, 0.05f, true);
+	animation = new Animation(tileset, 0.1f, true);
 	vel = 40;
 
 	uint normal[2] = { 0, 1 };
@@ -15,7 +15,7 @@ Balloon::Balloon() {
 
 	MoveTo(window->CenterX(), window->CenterY(), Layer::LOWER);
 
-	BBox(new Rect(-28, -38, 27, 37));
+	BBox(new Rect(-28, -34, 27, 33));
 	type = BALLOON;
 
 }
