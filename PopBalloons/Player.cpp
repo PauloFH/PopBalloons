@@ -40,6 +40,12 @@ void Player::Update() {
 	if (window->KeyDown(VK_RIGHT)) {
 		Translate(vel * gameTime, 0);
 	}
+	if (window->KeyDown('A')) {
+		Translate(-vel * gameTime, 0);
+	}
+	if (window->KeyDown('D')) {
+		Translate(vel * gameTime, 0);
+	}
 
 	// Bloquear passagem
 	if (x + tileset->TileWidth() / 2.0f > window->Width())

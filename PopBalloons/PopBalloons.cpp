@@ -13,11 +13,18 @@
 #include "Balloon.h"
 #include "Player.h"
 #include "Cat.h"
+#include <iostream>
+#include <random>
 
 Scene* PopBalloons::scene = nullptr;
+std::random_device rd;
+std::mt19937 gen(rd());
 
 void PopBalloons::Init()
 {
+
+
+
     background = new Sprite("Resources/background.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
@@ -35,53 +42,100 @@ void PopBalloons::Init()
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(100, 800);
+    balloon->MoveTo(100, random(800,2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(200, 800);
+    balloon->MoveTo(200, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(300, 800);
+    balloon->MoveTo(300, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(400, 800);
+    balloon->MoveTo(400, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(500, 800);
+    balloon->MoveTo(500, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(600, 800);
+    balloon->MoveTo(600, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(700, 800);
+    balloon->MoveTo(700, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(800, 800);
+    balloon->MoveTo(800, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(900, 800);
+    balloon->MoveTo(900, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(1000, 800);
+    balloon->MoveTo(1000, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(1100, 800);
+    balloon->MoveTo(1100, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
-    balloon->MoveTo(1200, 800);
+    balloon->MoveTo(1200, random(800, 2000));
     scene->Add(balloon, MOVING);
 
+    balloon = new Balloon();
+    balloon->MoveTo(100, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(200, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(300, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(400, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(500, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(600, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(700, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(800, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(900, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(1000, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(1100, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(1200, random(800, 2000));
+    scene->Add(balloon, MOVING);
 }
 
 // ------------------------------------------------------------------------------
@@ -118,6 +172,12 @@ void PopBalloons::Finalize()
     delete scene;
 }
 
+int PopBalloons::random(int low, int high)
+{
+     std::uniform_int_distribution<> dist(low, high);
+    return dist(gen);
+}
+
 // ------------------------------------------------------------------------------
 //                                  WinMain                                      
 // ------------------------------------------------------------------------------
@@ -131,7 +191,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     engine->window->Mode(WINDOWED);
     engine->window->Size(1280, 896);
     engine->window->Color(200, 24, 240);
-    engine->window->Title("Font Demo");
+    engine->window->Title("Pop Balloons");
     engine->window->Icon(IDI_ICON);
     engine->window->Cursor(IDC_CURSOR);
     //engine->graphics->VSync(true);
