@@ -14,6 +14,8 @@ private:
 	stringstream text;
 	bool spellQ;
 	TileSet* tileSpellQ;
+	bool spellW;
+	TileSet* tileSpellW;
 
 public:
 	Player();

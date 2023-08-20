@@ -1,5 +1,6 @@
 #include "Balloon.h"
 #include "PopBalloons.h"
+#include "Spell.h"
 
 Balloon::Balloon() {
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
@@ -49,7 +50,7 @@ void Balloon::OnCollision(Object * obj) {
 		state = POP;
 		PopBalloons::scene->Remove(obj, ATACK);
 	}
-	if (obj->Type() == SPELL) {
+	if (obj->Type() == SPELLQ) {
 		state = POP;
 	}
 }

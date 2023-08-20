@@ -12,6 +12,7 @@ Player::Player() {
 
 	//charging spells
 	tileSpellQ = new TileSet("Resources/spell.png", 96, 96, 28, 28);
+	tileSpellW = new TileSet("Resources/spellW.png", 64, 64, 60, 60);
 
 	MoveTo(window->CenterX(), window->CenterY() + 380, Layer::FRONT);
 
@@ -26,6 +27,7 @@ Player::~Player() {
 	delete animation;
 	delete atack;
 	delete tileSpellQ;
+	delete tileSpellW;
 }
 
 void Player::Update() {
@@ -58,13 +60,27 @@ void Player::Update() {
 		spellQ = true;
 	}
 	if (spellQ) {
-		Spell* power = new Spell(tileSpellQ, window->MouseX(), window->MouseY());
+		Spell* power = new Spell(tileSpellQ, window->MouseX(), window->MouseY(), Q);
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
 
 		text << "poder invocado" << ".\n";;
 		OutputDebugString(text.str().c_str());
 		spellQ = false;
+	}
+
+	// Spell W
+	if (window->KeyPress('W')) {
+		spellW = true;
+	}
+	if (spellW) {
+		Spell* power = new Spell(tileSpellW, window->MouseX(), window->MouseY(), W);
+		PopBalloons::scene->Add(power, MOVING);
+		text.str("");
+
+		text << "poder W invocado" << ".\n";;
+		OutputDebugString(text.str().c_str());
+		spellW = false;
 	}
 
 }
