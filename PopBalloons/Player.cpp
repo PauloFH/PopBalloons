@@ -3,20 +3,28 @@
 #include "Atack.h"
 #include "Spell.h"
 
+int Player::life = 5;
+
 Player::Player() {
 	tileset = new TileSet("Resources/player.png", 95.89, 143, 1, 6);
+	damage = new TileSet("Resources/playerDamage.png", 95.89, 143.84, 1, 3);
 	animation = new Animation(tileset, 0.25f, true);
+
+	text.str("");
+
+	text << life << ".\n";
+	OutputDebugString(text.str().c_str());
 
 	// charging atack
 	atack = new Image("Resources/atack.png");
 
 	// charging spells
-	tileSpellQ = new TileSet("Resources/spellQ.png", 96, 96, 28, 28);
+	tileSpellQ = new TileSet("Resources/spellQ.png", 164, 164, 28, 28);
 	tileSpellW = new TileSet("Resources/spellW.png", 64, 64, 60, 60);
 	tileSpellE = new TileSet("Resources/spellE.png", 203, 45, 3, 3);
 	tileSpellR = new TileSet("Resources/spellR.png", 192, 128, 12, 24);
 
-	MoveTo(window->CenterX(), window->CenterY() + 380, Layer::FRONT);
+	MoveTo(window->CenterX(), window->CenterY() + 270, Layer::FRONT);
 
 	vel = 200;
 
@@ -107,16 +115,16 @@ void Player::Update() {
 
 	if (window->KeyPress('R')) {
 		spellR = true;
-		lastClick = window->MouseX();
 	}
 	if (spellR) {
-		Spell* power = new Spell(tileSpellR, window->MouseX(), window->MouseY(), R, lastClick);
+		Spell* power = new Spell(tileSpellR, window->MouseX(), window->MouseY(), R, x);
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
 
 		text << "poder R invocado" << ".\n";
 		OutputDebugString(text.str().c_str());
 		spellR = false;
+	}
 
 		// Duplo atk
 		if (window->KeyPress(VK_RBUTTON)) {

@@ -5,7 +5,7 @@ Atack::Atack(Image* image, int posY) {
 
 	untilY = posY;
 	sprite = new Sprite(image);
-	vel = 500;
+	vel = 800;
 
 	BBox(new Rect(-6, -12.12, 5, 11.12));
 	type = ATACK;

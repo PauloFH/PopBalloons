@@ -19,7 +19,7 @@ Spell::Spell(TileSet* tset, int posX, int posY, uint sType) {
 
 	// Campo gravitacional
 	if (spellType == W) {
-		animation = new Animation(tileset, 0.3f, true);
+		animation = new Animation(tileset, 0.1f, true);
 		BBox(new Circle(tileset->Height() * 2));
 		type = SPELLW;
 	}
@@ -33,7 +33,7 @@ Spell::Spell(TileSet* tset, int posX, int posY, uint sType) {
 	
 }
 
-Spell::Spell(TileSet* tset, int posX, int posY, uint sType, uint lastClick) {
+Spell::Spell(TileSet* tset, int posX, int posY, uint sType, uint posPerson) {
 
 	MoveTo(posX, posY);
 	spellType = sType;
@@ -49,7 +49,7 @@ Spell::Spell(TileSet* tset, int posX, int posY, uint sType, uint lastClick) {
 		uint toLeft[12] = { 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12 };
 		animation->Add(TORIGHT, toRight, 12);
 		animation->Add(TOLEFT, toLeft, 12);
-		if (window->CenterX() > lastClick) {
+		if (posPerson > posX) {
 			direction = TORIGHT;
 			BBox(new Rect(-120, -63.5, 239, 62.5));
 		}
@@ -73,7 +73,7 @@ void Spell::Update() {
 		PopBalloons::scene->Delete();
 	}
 
-	if (animation->Frame() == 59 && spellType == W) {
+	if (time >= 10 / gameTime && spellType == W) {
 		PopBalloons::scene->Delete();
 	}
 
@@ -81,7 +81,7 @@ void Spell::Update() {
 		PopBalloons::scene->Delete();
 	}
 
-	if (spellType == R && animation->Frame() == 11 || animation->Frame() == 12) {
+	if (spellType == R && (animation->Frame() == 11 || animation->Frame() == 12)) {
 		PopBalloons::scene->Delete();
 	}
 
