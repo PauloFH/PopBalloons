@@ -37,7 +37,7 @@ Player::~Player() {
 void Player::Update() {
 	animation->NextFrame();
 
-	// Movimentação
+	// MovimentaÃ§Ã£o
 	if (window->KeyDown(VK_LEFT)) {
 		Translate(-vel * gameTime, 0);
 	}
@@ -118,10 +118,29 @@ void Player::Update() {
 		text << "poder R invocado" << ".\n";
 		OutputDebugString(text.str().c_str());
 		spellR = false;
+
+	// Duplo atk
+	if (window->KeyPress(VK_RBUTTON)) {
+		std::vector<Atack*> hits;
+		hits.push_back(new Atack(atack, window->MouseY()));
+		hits.push_back(new Atack(atack, window->MouseY()));
+		hits[0]->MoveTo(x - 10, y);
+		hits[1]->MoveTo(x + 10, y);
+
+		PopBalloons::scene->Add(hits[0], MOVING);
+		PopBalloons::scene->Add(hits[1], MOVING);
+
 	}
 
 }
 
 void Player::OnCollision(Object* obj) {
+
+}
+
+Player::Player(TileSet *  tileset) {
+	this->tileset = tileset;
+	animation = new Animation(this->tileset, 0.15f, true);
+	MoveTo(window->CenterX(), window->CenterY() + 380, Layer::FRONT);
 
 }

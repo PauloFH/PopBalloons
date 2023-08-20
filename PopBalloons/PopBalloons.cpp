@@ -10,6 +10,7 @@
 **********************************************************************************/
 
 #include "PopBalloons.h"
+#include "GameOver.h"
 #include "Balloon.h"
 #include "Player.h"
 #include "Cat.h"
@@ -148,6 +149,9 @@ void PopBalloons::Update()
 
     scene->Update();
     scene->CollisionDetection();
+
+    if (window->KeyDown('N'))
+        Engine::Next<GameOver>();
 } 
 
 // ------------------------------------------------------------------------------
