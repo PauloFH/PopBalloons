@@ -6,6 +6,7 @@
 #include "Scene.h"
 
 
+
 enum ObjTypes
 {
     PLAYER,           
@@ -22,13 +23,13 @@ private:
     Sprite* gram;
     Sprite* life;
     Sprite* wall;
-
+   
 public:
     static Scene* scene;
-
     void Init();
     void Update();
     void Draw();
     void Finalize();
+    int random(int low, int high);
 };
 
