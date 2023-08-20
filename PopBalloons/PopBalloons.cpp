@@ -10,9 +10,9 @@
 **********************************************************************************/
 
 #include "PopBalloons.h"
-#include "GameOver.h"
 #include "Balloon.h"
 #include "Player.h"
+#include "GameOver.h"
 #include "Cat.h"
 #include <iostream>
 #include <random>
@@ -24,9 +24,7 @@ std::mt19937 gen(rd());
 void PopBalloons::Init()
 {
 
-
-
-    background = new Sprite("Resources/background.png");
+    background = new Sprite("Resources/cloudybg.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
     life = new Sprite("Resources/life.png");
@@ -160,10 +158,10 @@ void PopBalloons::Draw()
 {
     life->Draw(20, 20, Layer::UPPER);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
-    wall->Draw(window->CenterX(), window->CenterY() + 375, Layer::MIDDLE);
-    gram->Draw(window->CenterX(), window->CenterY() + 450, Layer::UPPER);
+    wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
+    gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);
     scene->Draw();
-
+    scene->DrawBBox();
 } 
 
 // ------------------------------------------------------------------------------
@@ -194,7 +192,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(1280, 896);
+    engine->window->Size(968, 680);
     engine->window->Color(200, 24, 240);
     engine->window->Title("Pop Balloons");
     engine->window->Icon(IDI_ICON);

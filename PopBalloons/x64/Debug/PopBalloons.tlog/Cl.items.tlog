@@ -4,6 +4,7 @@ C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Balloon.cpp;C:\U
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Cat.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Cat.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Engine.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Engine.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Font.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Font.obj
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\GameOver.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\GameOver.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Player.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Player.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\PopBalloons.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Game.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Game.obj
@@ -15,6 +16,7 @@ C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Renderer.cpp;C:\
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Scene.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Scene.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Spell.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Spell.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Sprite.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Sprite.obj
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\telaInicial.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\telaInicial.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Texture.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Texture.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\TileSet.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\TileSet.obj
 C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Timer.cpp;C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\x64\Debug\Timer.obj

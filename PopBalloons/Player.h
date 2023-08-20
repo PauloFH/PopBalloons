@@ -7,6 +7,7 @@ using std::stringstream;
 class Player : public Object {
 private:
 	TileSet* tileset;
+	TileSet* damage;
 	Animation* animation;
 	Sprite* sprite;
 	Image* atack;
@@ -20,9 +21,10 @@ private:
 	TileSet* tileSpellE;
 	bool spellR;
 	TileSet* tileSpellR;
-	int lastClick;
 
 public:
+	static int life;
+
 	Player();
 	~Player();
 
