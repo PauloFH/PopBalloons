@@ -2,15 +2,15 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\x64\Debug\PopBalloons.exe</FullPath>
+      <FullPath>D:\Projects\Jogos\PopBalloons\x64\Debug\PopBalloons.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Shaders\Pixel.cso</FullPath>
+      <FullPath>D:\Projects\Jogos\PopBalloons\PopBalloons\Shaders\Pixel.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Shaders\Vertex.cso</FullPath>
+      <FullPath>D:\Projects\Jogos\PopBalloons\PopBalloons\Shaders\Vertex.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
