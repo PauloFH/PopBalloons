@@ -191,7 +191,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     engine->window->Mode(WINDOWED);
     engine->window->Size(1280, 896);
     engine->window->Color(200, 24, 240);
-    engine->window->Title("Font Demo");
+    engine->window->Title("Pop Balloons");
     engine->window->Icon(IDI_ICON);
     engine->window->Cursor(IDC_CURSOR);
     //engine->graphics->VSync(true);

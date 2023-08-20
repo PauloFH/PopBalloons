@@ -280,6 +280,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Spell.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="telaInicial.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileSet.h" />
     <ClInclude Include="Timer.h" />
