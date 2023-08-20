@@ -4,7 +4,14 @@
 
 enum Spells {
 	Q,
-	W
+	W,
+	E,
+	R
+};
+
+enum Direction {
+	TOLEFT,
+	TORIGHT
 };
 
 class Spell : public Object {
@@ -14,8 +21,11 @@ private:
 	int posX;
 	int posY;
 	uint spellType;
+	uint time;
+	uint direction = TOLEFT;
 public:
 	Spell(TileSet* tileset, int posX, int posY, uint spellType);
+	Spell(TileSet* tileset, int posX, int posY, uint spellType, uint direction);
 	~Spell();
 
 	void Update();

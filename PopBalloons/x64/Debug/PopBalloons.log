@@ -1,29 +1,9 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: O diretório intermediário (x64\Debug\) contém arquivos compartilhados de outro projeto (FontDemo.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
-  PopBalloons.cpp
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Balloon.h(1,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Balloon.h(2,10): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(45,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(49,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(53,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(57,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(61,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(65,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(69,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(73,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(77,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(81,33): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(85,33): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(89,33): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(93,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(97,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(101,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(105,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(109,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(113,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(117,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(121,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(125,32): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(129,33): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(133,33): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\PopBalloons.cpp(137,33): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  Spell.cpp
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Spell.cpp(6,15): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Spell.cpp(6,9): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Spell.cpp(16,37): warning C4244: 'argumento': conversão de 'uint' para 'float', possível perda de dados
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Spell.cpp(23,37): warning C4244: 'argumento': conversão de 'uint' para 'float', possível perda de dados
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Spell.cpp(38,15): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\PopBalloons\Spell.cpp(38,9): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
   PopBalloons.vcxproj -> C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\x64\Debug\PopBalloons.exe

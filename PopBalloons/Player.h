@@ -16,6 +16,11 @@ private:
 	TileSet* tileSpellQ;
 	bool spellW;
 	TileSet* tileSpellW;
+	bool spellE;
+	TileSet* tileSpellE;
+	bool spellR;
+	TileSet* tileSpellR;
+	int lastClick;
 
 public:
 	Player();

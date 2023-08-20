@@ -7,12 +7,14 @@ Player::Player() {
 	tileset = new TileSet("Resources/player.png", 95.89, 143, 1, 6);
 	animation = new Animation(tileset, 0.25f, true);
 
-	// chargin atack
+	// charging atack
 	atack = new Image("Resources/atack.png");
 
-	//charging spells
-	tileSpellQ = new TileSet("Resources/spell.png", 96, 96, 28, 28);
+	// charging spells
+	tileSpellQ = new TileSet("Resources/spellQ.png", 96, 96, 28, 28);
 	tileSpellW = new TileSet("Resources/spellW.png", 64, 64, 60, 60);
+	tileSpellE = new TileSet("Resources/spellE.png", 203, 45, 3, 3);
+	tileSpellR = new TileSet("Resources/spellR.png", 192, 128, 12, 24);
 
 	MoveTo(window->CenterX(), window->CenterY() + 380, Layer::FRONT);
 
@@ -28,12 +30,14 @@ Player::~Player() {
 	delete atack;
 	delete tileSpellQ;
 	delete tileSpellW;
+	delete tileSpellE;
+	delete tileSpellR;
 }
 
 void Player::Update() {
 	animation->NextFrame();
 
-	// Movimentação
+	// MovimentaÃ§Ã£o
 	if (window->KeyDown(VK_LEFT)) {
 		Translate(-vel * gameTime, 0);
 	}
@@ -70,7 +74,7 @@ void Player::Update() {
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
 
-		text << "poder invocado" << ".\n";;
+		text << "poder invocado" << ".\n";
 		OutputDebugString(text.str().c_str());
 		spellQ = false;
 	}
@@ -84,10 +88,36 @@ void Player::Update() {
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
 
-		text << "poder W invocado" << ".\n";;
+		text << "poder W invocado" << ".\n";
 		OutputDebugString(text.str().c_str());
 		spellW = false;
 	}
+
+	if (window->KeyPress('E')) {
+		spellE = true;
+	}
+	if (spellE) {
+		Spell* power = new Spell(tileSpellE, window->MouseX(), window->MouseY(), E);
+		PopBalloons::scene->Add(power, MOVING);
+		text.str("");
+
+		text << "poder E invocado" << ".\n";
+		OutputDebugString(text.str().c_str());
+		spellE = false;
+	}
+
+	if (window->KeyPress('R')) {
+		spellR = true;
+		lastClick = window->MouseX();
+	}
+	if (spellR) {
+		Spell* power = new Spell(tileSpellR, window->MouseX(), window->MouseY(), R, lastClick);
+		PopBalloons::scene->Add(power, MOVING);
+		text.str("");
+
+		text << "poder R invocado" << ".\n";
+		OutputDebugString(text.str().c_str());
+		spellR = false;
 
 	// Duplo atk
 	if (window->KeyPress(VK_RBUTTON)) {
@@ -99,6 +129,7 @@ void Player::Update() {
 
 		PopBalloons::scene->Add(hits[0], MOVING);
 		PopBalloons::scene->Add(hits[1], MOVING);
+
 	}
 
 }
