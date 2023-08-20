@@ -1,11 +1,11 @@
 /**********************************************************************************
 // FontDemo
 // 
-// Criação:     07 Out 2011
-// Atualização: 16 Ago 2023
+// CriaÃ§Ã£o:     07 Out 2011
+// AtualizaÃ§Ã£o: 16 Ago 2023
 // Compilador:  Visual C++ 2022
 //
-// Descrição:   Testa a classe Font com exibição de texto com diversas fontes.
+// DescriÃ§Ã£o:   Testa a classe Font com exibiÃ§Ã£o de texto com diversas fontes.
 //
 **********************************************************************************/
 
@@ -180,31 +180,4 @@ int PopBalloons::random(int low, int high)
      std::uniform_int_distribution<> dist(low, high);
     return dist(gen);
 }
-
-// ------------------------------------------------------------------------------
-//                                  WinMain                                      
-// ------------------------------------------------------------------------------
-
-int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
-                     _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
-{
-    Engine * engine = new Engine();
-
-    // configura motor
-    engine->window->Mode(WINDOWED);
-    engine->window->Size(968, 680);
-    engine->window->Color(200, 24, 240);
-    engine->window->Title("Pop Balloons");
-    engine->window->Icon(IDI_ICON);
-    engine->window->Cursor(IDC_CURSOR);
-    //engine->graphics->VSync(true);
-
-    // inicia o jogo
-    int status = engine->Start(new PopBalloons());
-
-    delete engine;
-    return status;
-}
-
-// ----------------------------------------------------------------------------
 

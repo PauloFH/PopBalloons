@@ -58,14 +58,13 @@ void Player::Update() {
 	if (window->KeyDown('D')) {
 		Translate(vel * gameTime, 0);
 	}
-
 	// Bloquear passagem
-	if (x + tileset->TileWidth() / 2.0f > window->Width())
+	if (x + tileset->TileWidth() / 2.0f > window->Width()) {
 		MoveTo(window->Width() - tileset->TileWidth() / 2.0f, y);
-
-	if (x - tileset->TileWidth() / 2.0f < 0)
+	}
+	if (x - tileset->TileWidth() / 2.0f < 0) {
 		MoveTo(tileset->TileWidth() / 2.0f, y);
-
+	}
 	// Basic atack
 	if (window->KeyPress(VK_LBUTTON)) {
 		Atack* hit = new Atack(atack, window->MouseY());
@@ -127,28 +126,22 @@ void Player::Update() {
 		spellR = false;
 	}
 
-	// Duplo atk
-	if (window->KeyPress(VK_RBUTTON)) {
-		std::vector<Atack*> hits;
-		hits.push_back(new Atack(atack, window->MouseY()));
-		hits.push_back(new Atack(atack, window->MouseY()));
-		hits[0]->MoveTo(x - 10, y);
-		hits[1]->MoveTo(x + 10, y);
+		// Duplo atk
+		if (window->KeyPress(VK_RBUTTON)) {
+			std::vector<Atack*> hits;
+			hits.push_back(new Atack(atack, window->MouseY()));
+			hits.push_back(new Atack(atack, window->MouseY()));
+			hits[0]->MoveTo(x - 10, y);
+			hits[1]->MoveTo(x + 10, y);
 
-		PopBalloons::scene->Add(hits[0], MOVING);
-		PopBalloons::scene->Add(hits[1], MOVING);
+			PopBalloons::scene->Add(hits[0], MOVING);
+			PopBalloons::scene->Add(hits[1], MOVING);
+
+		}
 
 	}
+}
+void Player::OnCollision(Object* obj){
 
 }
 
-void Player::OnCollision(Object* obj) {
-
-}
-
-Player::Player(TileSet *  tileset) {
-	this->tileset = tileset;
-	animation = new Animation(this->tileset, 0.15f, true);
-	MoveTo(window->CenterX(), window->CenterY() + 380, Layer::FRONT);
-
-}

@@ -27,14 +27,10 @@ public:
 
 	Player();
 	~Player();
-
 	void Update();
 	void Draw();
 	void OnCollision(Object * obj);
-	Player(TileSet * tileset);
 };
 
-inline void Player::Draw()
-{
-	animation->Draw(x, y, z);
-}
+inline void Player::Draw(){animation->Draw(x, y, z);};
+
