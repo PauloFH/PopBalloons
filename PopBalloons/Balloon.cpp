@@ -43,7 +43,7 @@ void Balloon::Update() {
 		text << "balloon deletado" << ".\n";;
 		OutputDebugString(text.str().c_str());
 
-		Player::state = 1;
+		Player::state = HITED;
 		Player::life--;
 		Lifes::takeDamage = true;
 

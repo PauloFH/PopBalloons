@@ -5,6 +5,7 @@
 
 int Player::life = 5;
 uint Player::state = PLENO;
+uint Player::cdrQ, Player::cdrW, Player::cdrE, Player::cdrR;
 
 Player::Player() {
 	audio = new Audio();
@@ -29,6 +30,21 @@ Player::Player() {
 
 	// charging atack
 	atack = new Image("Resources/atack.png");
+
+	// charging icons 
+	iconQ = new Image("Resources/iconQ.png");
+	xiconQ = new Image("Resources/XiconQ.png");
+	darkIconQ = new Image("Resources/darkIconQ.png");
+	spriteQ = new Sprite(iconQ);
+	iconW = new Image("Resources/iconW.png");
+	xiconW = new Image("Resources/XiconW.png");
+	spriteW = new Sprite(iconW);
+	iconE = new Image("Resources/iconE.png");
+	xiconE = new Image("Resources/XiconE.png");
+	spriteE = new Sprite(iconE);
+	iconR = new Image("Resources/iconR.png");
+	xiconR = new Image("Resources/XiconR.png");
+	spriteR = new Sprite(iconR);
 
 	// charging spells
 	tileSpellQ = new TileSet("Resources/spellQ.png", 164, 164, 28, 28);
@@ -96,61 +112,70 @@ void Player::Update() {
 	}
 
 	// Spell Q
-	if (window->KeyPress('Q')) {
+	if ((cdrQ >= 6 * 60)) {
+		spriteQ = new Sprite(iconQ);
+	}
+	else {
+		int cdr = cdrQ / 60; // retorna o valor, em segundos, que faltam pra retornar a skill
+	}
+	if (window->KeyPress('Q') && (cdrQ >= 6 * 60)) {
 		spellQ = true;
+		cdrQ = 0;
+		spriteQ = new Sprite(xiconQ);
 	}
 	if (spellQ) {
 		audio->Play(SPELL_EXPLOSION);
 		Spell* power = new Spell(tileSpellQ, window->MouseX(), window->MouseY(), Q);
 		PopBalloons::scene->Add(power, MOVING);
-		text.str("");
-
-		text << "poder invocado" << ".\n";
-		OutputDebugString(text.str().c_str());
 		spellQ = false;
 	}
 
 	// Spell W
-	if (window->KeyPress('W')) {
+	if ((cdrW >= 15 * 60)) {
+		spriteW = new Sprite(iconW);
+	}
+	if (window->KeyPress('W') && (cdrW >= 15 * 60)) {
 		spellW = true;
+		cdrW = 0;
+		spriteW = new Sprite(xiconW);
 	}
 	if (spellW) {
 
 		audio->Play(SPELL_PUXAR);
 		Spell* power = new Spell(tileSpellW, window->MouseX(), window->MouseY(), W);
 		PopBalloons::scene->Add(power, MOVING);
-		text.str("");
-
-		text << "poder W invocado" << ".\n";
-		OutputDebugString(text.str().c_str());
 		spellW = false;
 	}
 
-	if (window->KeyPress('E')) {
+	// Spell E
+	if ((cdrE >= 10 * 60)) {
+		spriteE = new Sprite(iconE);
+	}
+	if (window->KeyPress('E') && (cdrE >= 10 * 60)) {
 		spellE = true;
+		cdrE = 0;
+		spriteE = new Sprite(xiconE);
 	}
 	if (spellE) {
 		audio->Play(SPELL_WALL);
 		Spell* power = new Spell(tileSpellE, window->MouseX(), window->MouseY(), E);
 		PopBalloons::scene->Add(power, MOVING);
-		text.str("");
-
-		text << "poder E invocado" << ".\n";
-		OutputDebugString(text.str().c_str());
 		spellE = false;
 	}
 
-	if (window->KeyPress('R')) {
+	// Spell R
+	if ((cdrR >= 3 * 60)) {
+		spriteR = new Sprite(iconR);
+	}
+	if (window->KeyPress('R') && (cdrR >= 3 * 60)) {
 		spellR = true;
+		cdrR = 0;
+		spriteR = new Sprite(xiconR);
 	}
 	if (spellR) {
 		audio->Play(SPELL_WIND);
 		Spell* power = new Spell(tileSpellR, window->MouseX(), window->MouseY(), R, x);
 		PopBalloons::scene->Add(power, MOVING);
-		text.str("");
-
-		text << "poder R invocado" << ".\n";
-		OutputDebugString(text.str().c_str());
 		spellR = false;
 	}
 
@@ -168,6 +193,20 @@ void Player::Update() {
 
 		}
 
+		cdrQ++;
+		cdrW++;
+		cdrE++;
+		cdrR++;
+
+};
+
+
+void Player::Draw() {
+	animation->Draw(x, y, z);
+	spriteQ->Draw(660, 635, Layer::FRONT);
+	spriteW->Draw(730, 635, Layer::FRONT);
+	spriteE->Draw(800, 635, Layer::FRONT);
+	spriteR->Draw(870, 635, Layer::FRONT);
 };
 
 void Player::OnCollision(Object* obj){
