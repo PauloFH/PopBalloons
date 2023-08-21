@@ -1,5 +1,6 @@
 #include "GameOver.h"
 #include "Player.h"
+#include "telaInicial.h"
 
 void GameOver::Init()
 {
@@ -14,8 +15,8 @@ void GameOver::Update()
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
     
-    //if( window->KeyDown('R'))
-        //Engine::Next<QualéaTelaInicial?>();
+    if( window->KeyDown(VK_RETURN))
+        Engine::Next<TelaInicial>();
 } 
 
 // ------------------------------------------------------------------------------

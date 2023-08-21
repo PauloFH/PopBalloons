@@ -37,17 +37,34 @@ void PopBalloons::Init()
 
     Cat* cat = new Cat();
     scene->Add(cat, STATIC);
-
+  
     Player* player = new Player();
     scene->Add(player, MOVING);
 
-    Balloon* balloon = new Balloon();
-    scene->Add(balloon, MOVING);
+    Balloon * balloon;
+    for (int i = 0; i < 10; i++) {
+        balloon = new Balloon();
+        balloon->MoveTo(random(80,900), random(500,800));
+        scene->Add(balloon, MOVING);
+     }
 
-    balloon = new Balloon();
-    balloon->MoveTo(100, random(800,2000));
-    scene->Add(balloon, MOVING);
+    for (int i = 0; i < 20; i++) {
+      balloon = new Balloon();
+      balloon->MoveTo(random(80, 900), random(800, 1200));
+      scene->Add(balloon, MOVING);
+    }
 
+    for (int i = 0; i < 20; i++) {
+        balloon = new Balloon();
+        balloon->MoveTo(random(80, 900), random(1200, 1500));
+        scene->Add(balloon, MOVING);
+    }
+    for (int i = 0; i < 100; i++) {
+        balloon = new Balloon();
+        balloon->MoveTo(random(80, 900), random(1500, 3000));
+        scene->Add(balloon, MOVING);
+    }
+    /*
     balloon = new Balloon();
     balloon->MoveTo(200, random(800, 2000));
     scene->Add(balloon, MOVING);
@@ -78,18 +95,6 @@ void PopBalloons::Init()
 
     balloon = new Balloon();
     balloon->MoveTo(900, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(1000, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(1100, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(1200, random(800, 2000));
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
@@ -113,6 +118,18 @@ void PopBalloons::Init()
     scene->Add(balloon, MOVING);
 
     balloon = new Balloon();
+    balloon->MoveTo(300, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(400, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
+    balloon->MoveTo(500, random(800, 2000));
+    scene->Add(balloon, MOVING);
+
+    balloon = new Balloon();
     balloon->MoveTo(600, random(800, 2000));
     scene->Add(balloon, MOVING);
 
@@ -139,6 +156,7 @@ void PopBalloons::Init()
     balloon = new Balloon();
     balloon->MoveTo(1200, random(800, 2000));
     scene->Add(balloon, MOVING);
+    */
 }
 
 // ------------------------------------------------------------------------------

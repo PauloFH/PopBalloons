@@ -17,7 +17,6 @@ Scene * TelaInicial::scene = nullptr;
 // -----------------------------------------------------------------------------
 void TelaInicial::Init()
 {
-
     backg = new Sprite("Resources/fi.png"); // fundo completo
     tileset = new TileSet("Resources/menu.png", 94.5, 142, 6, 60);; //animação do player na tela de inicio
     gif = new Gif(tileset);
@@ -30,16 +29,16 @@ void TelaInicial::Init()
 }
 
 void TelaInicial::Update()
+{    
+        if (window->KeyDown(VK_SPACE))
+            Engine::Next<PopBalloons>();
 
-{
     
     // sai com pressionamento do ESC
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
 
-    if (window->KeyDown(VK_SPACE))
-        Engine::Next<PopBalloons>();
-
+  
 
    scene->Update();
 }
