@@ -1,3 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: O diretório intermediário (x64\Debug\) contém arquivos compartilhados de outro projeto (FontDemo.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
-  PopBalloons.cpp
-  FontDemo.vcxproj -> C:\Users\ryanb\source\repos\PopBalloons\PopBalloons\x64\Debug\PopBalloons.exe
