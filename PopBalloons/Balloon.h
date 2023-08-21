@@ -17,6 +17,7 @@ private:
 	stringstream text;
 	int vel;
 
+
 public:
 	Balloon();
 	~Balloon();

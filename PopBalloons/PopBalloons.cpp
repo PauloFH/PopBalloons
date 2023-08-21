@@ -22,10 +22,11 @@ std::random_device rd;
 std::mt19937 gen(rd());
 
 void PopBalloons::Init()
-{
-
-
-
+{   
+    pontuacao = 0;
+    placarDraw = "Placar: ";
+    placar = new Font("Resources/FixedSys30.png");
+    placar->Spacing(80);
     background = new Sprite("Resources/background.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
@@ -143,6 +144,7 @@ void PopBalloons::Init()
 
 void PopBalloons::Update()
 {
+    
     // sai com pressionamento do ESC
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
@@ -156,13 +158,16 @@ void PopBalloons::Update()
 
 // ------------------------------------------------------------------------------
 
-void PopBalloons::Draw()
-{
+void PopBalloons::Draw() {
+
+    Color black(0.0f, 0.0f, 0.0f, 1.0f);
+    placar->Draw(100, 50, placarDraw + " 23" , black);
     life->Draw(20, 20, Layer::UPPER);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     wall->Draw(window->CenterX(), window->CenterY() + 375, Layer::MIDDLE);
     gram->Draw(window->CenterX(), window->CenterY() + 450, Layer::UPPER);
     scene->Draw();
+
 
 } 
 
