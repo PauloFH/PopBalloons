@@ -2,15 +2,12 @@
 #include "PopBalloons.h"
 
 Atack::Atack(Image* image, int posY) {
-	audio = new Audio();
-	audio->Add(1, "Resources/Spell_attack.wav");
 	untilY = posY;
 	sprite = new Sprite(image);
 	vel = 800;
 	validAtack = 0;
 
 	type = ATACK;
-	audio->Play(1);
 }
 
 Atack::~Atack() {
@@ -42,5 +39,4 @@ void Atack::Update() {
 }
 
 void Atack::OnCollision(Object * obj) {
-
 }

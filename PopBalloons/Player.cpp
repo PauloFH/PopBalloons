@@ -69,6 +69,19 @@ Player::~Player() {
 	delete tileSpellE;
 	delete tileSpellR;
 	delete audio;
+	delete iconQ;
+	delete xiconQ;
+	delete darkIconQ;
+	delete spriteQ;
+	delete iconW;
+	delete xiconW;
+	delete spriteW;
+	delete iconE;
+	delete xiconE;
+	delete spriteE;
+	delete iconR;
+	delete xiconR;
+	delete spriteR;
 }
 
 void Player::Update() {
@@ -179,25 +192,10 @@ void Player::Update() {
 		spellR = false;
 	}
 
-		// Duplo atk
-		if (window->KeyPress(VK_RBUTTON)) {
-
-			std::vector<Atack*> hits;
-			hits.push_back(new Atack(atack, window->MouseY()));
-			hits.push_back(new Atack(atack, window->MouseY()));
-			hits[0]->MoveTo(x - 10, y);
-			hits[1]->MoveTo(x + 10, y);
-
-			PopBalloons::scene->Add(hits[0], MOVING);
-			PopBalloons::scene->Add(hits[1], MOVING);
-
-		}
-
 		cdrQ++;
 		cdrW++;
 		cdrE++;
 		cdrR++;
-
 };
 
 

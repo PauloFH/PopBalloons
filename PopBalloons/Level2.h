@@ -8,42 +8,25 @@
 #include "Audio.h"
 
 
-enum ObjTypes
-{
-    PLAYER,           
-    BALLOON,
-    ATACK,
-    SPELLQ,
-    SPELLW,
-    SPELLE,
-    SPELLR
-};
-enum Sonds {
-    MENUAUDIO,
-    LAUGHT,
-    CHILDS,
-    BALLOONT
-};
-class PopBalloons : public Game
+class Level2 : public Game
 {
 private:
-    Audio  * audio;
-    Sprite * background;
-    Sprite * gram;
-    Sprite * wall;
-    Font   * placar;
+    Audio* audio;
+    Sprite* background;
+    Sprite* gram;
+    Sprite* wall;
+    Font* placar;
     string placarDraw;
     TileSet* tileBalloonRed;
     TileSet* tileBalloonBlue;
     Audio* balloonAudio;
 
 public:
-    string pontuacao;
-    static Scene* scene;
+    string pontuacao2;
+    static Scene* scene2;
     void Init();
     void Update();
     void Draw();
     void Finalize();
     int random(int low, int high);
 };
-

@@ -32,15 +32,16 @@ class TelaInicial : public Game
 {
 private:
     Audio  * audio   = nullptr;
-   Sprite  * backg   = nullptr;
-   TileSet * tileset = nullptr;
-   Gif     * gif     = nullptr;
-   Gif     * title   = nullptr;
-   Balloon * balloon = nullptr;
-   bool ini;
-   int time;
+    Sprite* background = nullptr;
+    Sprite* gram = nullptr;
+    Sprite* wall = nullptr;
+    Sprite* nome = nullptr;
+    TileSet * tileset = nullptr;
+    Balloon * balloon = nullptr;
+    bool ini;
+    int time;
 public:
-    static Scene * scene;           // gerenciador de cena
+    static Scene * sceneI;           // gerenciador de cena
 
     void Init();   // inicialização
     void Update(); // atualização
