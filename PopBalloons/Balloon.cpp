@@ -1,6 +1,7 @@
 #include "Balloon.h"
 #include "PopBalloons.h"
 #include "Spell.h"
+#include "Player.h"
 
 Balloon::Balloon() {
 
@@ -34,6 +35,13 @@ void Balloon::Update() {
 		text.str("");
 
 		text << "balloon deletado" << ".\n";;
+		OutputDebugString(text.str().c_str());
+
+		Player::life--;
+
+		text.str("");
+
+		text << Player::life << ".\n";;
 		OutputDebugString(text.str().c_str());
 	}
 

@@ -1,18 +1,18 @@
 /**********************************************************************************
 // FontDemo
 // 
-// Criação:     07 Out 2011
-// Atualização: 16 Ago 2023
+// CriaÃ§Ã£o:     07 Out 2011
+// AtualizaÃ§Ã£o: 16 Ago 2023
 // Compilador:  Visual C++ 2022
 //
-// Descrição:   Testa a classe Font com exibição de texto com diversas fontes.
+// DescriÃ§Ã£o:   Testa a classe Font com exibiÃ§Ã£o de texto com diversas fontes.
 //
 **********************************************************************************/
 
 #include "PopBalloons.h"
-#include "GameOver.h"
 #include "Balloon.h"
 #include "Player.h"
+#include "GameOver.h"
 #include "Cat.h"
 #include <iostream>
 #include <random>
@@ -22,12 +22,13 @@ std::random_device rd;
 std::mt19937 gen(rd());
 
 void PopBalloons::Init()
-{   
+{
+
     pontuacao = 0;
     placarDraw = "Placar: ";
     placar = new Font("Resources/FixedSys30.png");
-    placar->Spacing(80);
-    background = new Sprite("Resources/background.png");
+    placar->Spacing(80);    
+    background = new Sprite("Resources/cloudybg.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
     life = new Sprite("Resources/life.png");
@@ -164,10 +165,9 @@ void PopBalloons::Draw() {
     placar->Draw(100, 50, placarDraw + " 23" , black);
     life->Draw(20, 20, Layer::UPPER);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
-    wall->Draw(window->CenterX(), window->CenterY() + 375, Layer::MIDDLE);
-    gram->Draw(window->CenterX(), window->CenterY() + 450, Layer::UPPER);
+    wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
+    gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);
     scene->Draw();
-
 
 } 
 
@@ -187,5 +187,4 @@ int PopBalloons::random(int low, int high)
      std::uniform_int_distribution<> dist(low, high);
     return dist(gen);
 }
-
 

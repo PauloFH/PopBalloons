@@ -4,7 +4,7 @@ Cat::Cat() {
     tileset = new TileSet("Resources/cat.png", 48, 48, 15, 15);
     animation = new Animation(tileset, 0.5f, true);
 
-    MoveTo(1150, 685);
+    MoveTo(900, 505);
 }
 
 Cat::~Cat() {
