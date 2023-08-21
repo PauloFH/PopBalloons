@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Sprite.h"
 #include "Audio.h"
+#include "Font.h"
 
 enum SoundEnd {
 	GAMEOVER,
@@ -14,6 +15,7 @@ private:
 	Sprite* background;
 	bool ctrlKeySPC = false;
 	Audio* audio;
+	Font* font;
 public:
 	void Init();
 	void Update();

@@ -8,7 +8,7 @@ using std::stringstream;
 class Atack : public Object {
 
 private:
-	Audio * audio;
+	
 	Sprite* sprite;
 	int vel;
 	int untilY;
@@ -16,7 +16,7 @@ private:
 public:
 	Atack(Image * image, int untilY);
 	~Atack();
-
+	static Audio* audio;
 	void Update();
 	void Draw();
 	void OnCollision(Object* obj);

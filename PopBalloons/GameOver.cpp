@@ -6,10 +6,10 @@ void GameOver::Init()
 {   
     audio = new Audio();
     audio->Add(GAMEOVER, "Resources/Game_Lose.wav");
-   // audio->Add(CRY, "Resources/cry.wav");
     background = new Sprite("Resources/GameOver.png");
     audio->Play(GAMEOVER);
-
+    font = new Font("Resources/FixedSys30.png");
+    font->Spacing(65);
 }
 
 // ------------------------------------------------------------------------------
@@ -27,15 +27,15 @@ void GameOver::Update()
 
     if( window->KeyDown(VK_ESCAPE))
         window->Close();
-    if (window->KeyDown(VK_RETURN))
-        Engine::Next<TelaInicial>();
 } 
 
 // ------------------------------------------------------------------------------
 
 void GameOver::Draw()
 {
+    Color black(0.0f, 0.0f, 0.0f, 1.0f);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
+    font->Draw(200, 480, "PRESS SPACE TO RESTART THE GAME", Color(1.0f, 1.0f, 1.0f, 1.0f), Layer::UPPER, 0.3f);
 } 
 
 // ------------------------------------------------------------------------------
@@ -44,5 +44,6 @@ void GameOver::Finalize()
 {
     delete background;
     delete audio;
+    delete font;
 }
 
