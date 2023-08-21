@@ -17,6 +17,7 @@
 #include "Lifes.h"
 #include <iostream>
 #include <random>
+#include "Vitoria.h"
 
 Scene* PopBalloons::scene = nullptr;
 std::random_device rd;
@@ -52,14 +53,14 @@ void PopBalloons::Init()
   
     Player* player = new Player();
     scene->Add(player, MOVING);
-
+   
     Balloon * balloon;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1; i++) {
         balloon = new Balloon();
         balloon->MoveTo(random(80,900), random(500,800));
         scene->Add(balloon, MOVING);
      }
-
+    /*
     for (int i = 0; i < 20; i++) {
       balloon = new Balloon();
       balloon->MoveTo(random(80, 900), random(800, 1200));
@@ -76,6 +77,7 @@ void PopBalloons::Init()
         balloon->MoveTo(random(80, 900), random(1500, 3000));
         scene->Add(balloon, MOVING);
     }
+    */
     audio->Play(MENUAUDIO);
 }
 
@@ -83,7 +85,7 @@ void PopBalloons::Init()
 
 void PopBalloons::Update()
 {
-    
+
     // sai com pressionamento do ESC
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
@@ -91,15 +93,25 @@ void PopBalloons::Update()
     scene->Update();
     scene->CollisionDetection();
 
-    if (window->KeyDown('N') || Player::life <= 0)
+    if (Balloon::quantidade == 0 || (window->KeyDown('G'))) {
+
+        Engine::Next<Vitoria>();
+    }
+
+    if (window->KeyDown('N') || Player::life <= 0){
         Engine::Next<GameOver>();
+    }
+
+
 } 
 // ------------------------------------------------------------------------------
 
 void PopBalloons::Draw() {
     pontuacao = std::to_string(Balloon::pontuacao);
+    string qt = std::to_string(Balloon::quantidade);
     Color black(0.0f, 0.0f, 0.0f, 1.0f);
     placar->Draw(700, 30, placarDraw + pontuacao , black, Layer::UPPER, 0.3f);
+    placar->Draw(700, 60, qt , black, Layer::UPPER, 0.3f);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
     gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);

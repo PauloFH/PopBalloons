@@ -16,6 +16,9 @@ private:
 	bool ctrlKeySPC = false;
 	Audio* audio;
 	Font* font;
+	int fm = 0;
+	int mfm = 30;
+	bool dw = false;
 public:
 	void Init();
 	void Update();

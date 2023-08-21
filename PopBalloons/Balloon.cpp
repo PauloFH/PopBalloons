@@ -10,6 +10,7 @@ int Balloon::pontuacao = 0;
 Audio * Balloon::audio = new Audio();
 
 Balloon::Balloon() {
+	quantidade++;
 	 Balloon::state = NORMAL;
 	audio->Add(POPBALLOON_, "Resources/PopBalloon.wav");
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
@@ -31,6 +32,7 @@ Balloon::Balloon() {
 Balloon::~Balloon() {
 	delete tileset;
 	delete animation;
+	quantidade--;
 }
 
 void Balloon::Update() {

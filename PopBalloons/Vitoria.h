@@ -14,6 +14,9 @@ class Vitoria : public Game {
 		Sprite * fundo;
 		Font   * text;
 		bool ctrlKeySPC = false;
+		int fm = 0;
+		int mfm = 30;
+		bool dw = false;
 	public:
 
 		void Init();
