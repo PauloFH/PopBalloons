@@ -25,10 +25,12 @@ std::mt19937 gen(rd());
 void PopBalloons::Init()
 {
     Balloon::pontuacao = 0;
+    Player::life = 5;
+    Player::state = PLENO;
     pontuacao = "";
     placarDraw = "Placar: ";
     placar = new Font("Resources/FixedSys30.png");
-    placar->Spacing(80);    
+    placar->Spacing(65);    
     background = new Sprite("Resources/cloudybg.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
@@ -182,8 +184,7 @@ void PopBalloons::Update()
 void PopBalloons::Draw() {
     pontuacao = std::to_string(Balloon::pontuacao);
     Color black(0.0f, 0.0f, 0.0f, 1.0f);
-    placar->Draw(100, 50, placarDraw + pontuacao , black);
-    life->Draw(20, 20, Layer::UPPER);
+    placar->Draw(700, 30, placarDraw + pontuacao , black, Layer::UPPER, 0.3f);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
     gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);

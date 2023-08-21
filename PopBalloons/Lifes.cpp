@@ -9,7 +9,7 @@ Lifes::Lifes() {
 
 	takeDamage = false;
 
-	MoveTo(270, 30);
+	MoveTo(120, 30);
 }
 
 Lifes::~Lifes() {
