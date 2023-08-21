@@ -150,7 +150,8 @@ void Player::Update() {
 
 		}
 
-}
+};
+
 void Player::OnCollision(Object* obj){
 
 }

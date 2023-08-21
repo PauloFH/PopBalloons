@@ -4,7 +4,7 @@
 #include "Sprite.h"
 #include "Resources.h"
 #include "Scene.h"
-
+#include <string.h>
 
 
 enum ObjTypes
@@ -24,8 +24,11 @@ private:
     Sprite* background;
     Sprite* gram;
     Sprite* wall;
-   
+    Font* placar;
+    string placarDraw;
+
 public:
+    string pontuacao;
     static Scene* scene;
     void Init();
     void Update();

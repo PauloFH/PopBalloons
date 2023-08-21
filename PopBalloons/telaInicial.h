@@ -32,6 +32,8 @@ private:
    Gif     * gif     = nullptr;
    Gif     * title   = nullptr;
    Balloon * balloon = nullptr;
+   bool ini;
+   int time;
 public:
     static Scene * scene;           // gerenciador de cena
 

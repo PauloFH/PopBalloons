@@ -4,11 +4,15 @@
 #include "Player.h"
 #include "Lifes.h"
 
+//---------------------------------------------------------------------------------------------------------
+
+int Balloon::pontuacao = 0;
+
 Balloon::Balloon() {
+
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
 	animation = new Animation(tileset, 0.1f, true);
 	vel = 40;
-
 	uint normal[2] = { 0, 1 };
 	uint pop[6] = { 0, 1, 2, 3, 4, 5 };
 
@@ -53,6 +57,7 @@ void Balloon::Update() {
 
 	if (animation->Frame() == 5) {
 		PopBalloons::scene->Delete();
+		pontuacao = pontuacao + 1;
 	}
 }
 

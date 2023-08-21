@@ -17,7 +17,9 @@ private:
 	stringstream text;
 	int vel;
 
+
 public:
+	static int pontuacao;
 	Balloon();
 	~Balloon();
 
