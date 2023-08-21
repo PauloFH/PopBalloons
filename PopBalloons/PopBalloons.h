@@ -23,7 +23,6 @@ class PopBalloons : public Game
 private:
     Sprite* background;
     Sprite* gram;
-    Sprite* life;
     Sprite* wall;
    
 public:

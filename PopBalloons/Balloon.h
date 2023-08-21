@@ -13,7 +13,7 @@ private:
 	TileSet* tileset = nullptr;
 	Sprite* sprite = nullptr;
 	Animation* animation = nullptr;
-	uint state = NORMAL;
+	uint state;
 	stringstream text;
 	int vel;
 

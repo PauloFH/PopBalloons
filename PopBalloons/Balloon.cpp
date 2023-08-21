@@ -2,6 +2,7 @@
 #include "PopBalloons.h"
 #include "Spell.h"
 #include "Player.h"
+#include "Lifes.h"
 
 Balloon::Balloon() {
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
@@ -37,7 +38,9 @@ void Balloon::Update() {
 		text << "balloon deletado" << ".\n";;
 		OutputDebugString(text.str().c_str());
 
+		Player::state = 1;
 		Player::life--;
+		Lifes::takeDamage = true;
 
 		text.str("");
 

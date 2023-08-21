@@ -247,6 +247,7 @@
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Gif.cpp" />
+    <ClCompile Include="Lifes.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PopBalloons.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -277,6 +278,7 @@
     <ClInclude Include="Gif.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="Lifes.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PopBalloons.h" />

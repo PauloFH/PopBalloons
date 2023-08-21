@@ -4,11 +4,15 @@
 #include "Spell.h"
 
 int Player::life = 5;
+uint Player::state = PLENO;
 
 Player::Player() {
-	tileset = new TileSet("Resources/player.png", 95.89, 143, 1, 6);
-	damage = new TileSet("Resources/playerDamage.png", 95.89, 143.84, 1, 3);
+	tileset = new TileSet("Resources/playercomplet.png", 95.89, 143, 1, 9);
 	animation = new Animation(tileset, 0.25f, true);
+	uint pleno[6] = { 0, 1, 2, 3, 4, 5 };
+	uint hited[3] = { 6, 7, 8 };
+	animation->Add(PLENO, pleno, 6);
+	animation->Add(HITED, hited, 3);
 
 	text.str("");
 
@@ -43,7 +47,14 @@ Player::~Player() {
 }
 
 void Player::Update() {
+
+	animation->Select(state);
 	animation->NextFrame();
+
+	// muda os estados
+	if (state == HITED && animation->Frame() == 8) {
+		state = PLENO;
+	}
 
 	// Movimentação
 	if (window->KeyDown(VK_LEFT)) {
@@ -139,9 +150,7 @@ void Player::Update() {
 
 		}
 
-	}
 }
 void Player::OnCollision(Object* obj){
 
 }
-
