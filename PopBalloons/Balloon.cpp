@@ -2,6 +2,8 @@
 #include "PopBalloons.h"
 #include "Spell.h"
 #include "Player.h"
+#include "Lifes.h"
+
 //---------------------------------------------------------------------------------------------------------
 
 int Balloon::pontuacao = 0;
@@ -40,7 +42,9 @@ void Balloon::Update() {
 		text << "balloon deletado" << ".\n";;
 		OutputDebugString(text.str().c_str());
 
+		Player::state = 1;
 		Player::life--;
+		Lifes::takeDamage = true;
 
 		text.str("");
 

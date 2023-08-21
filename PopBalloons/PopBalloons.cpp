@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "GameOver.h"
 #include "Cat.h"
+#include "Lifes.h"
 #include <iostream>
 #include <random>
 
@@ -31,9 +32,11 @@ void PopBalloons::Init()
     background = new Sprite("Resources/cloudybg.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
-    life = new Sprite("Resources/life.png");
 
     scene = new Scene();
+
+    Lifes* lifes = new Lifes();
+    scene->Add(lifes, STATIC);
 
     Cat* cat = new Cat();
     scene->Add(cat, STATIC);
@@ -171,7 +174,7 @@ void PopBalloons::Update()
     scene->Update();
     scene->CollisionDetection();
 
-    if (window->KeyDown('N'))
+    if (window->KeyDown('N') || Player::life <= 0)
         Engine::Next<GameOver>();
 } 
 // ------------------------------------------------------------------------------
@@ -192,7 +195,6 @@ void PopBalloons::Draw() {
 
 void PopBalloons::Finalize()
 {
-    delete life;
     delete wall;
     delete gram;
     delete background;

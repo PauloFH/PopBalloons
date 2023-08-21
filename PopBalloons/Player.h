@@ -3,11 +3,14 @@
 #include <sstream>
 using std::stringstream;
 
+enum Estado {
+	PLENO,
+	HITED
+};
 
 class Player : public Object {
 private:
 	TileSet* tileset;
-	TileSet* damage;
 	Animation* animation;
 	Sprite* sprite;
 	Image* atack;
@@ -24,6 +27,7 @@ private:
 
 public:
 	static int life;
+	static uint state;
 
 	Player();
 	~Player();
