@@ -194,7 +194,7 @@ void PopBalloons::Draw() {
     wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
     gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);
     scene->Draw();
-
+    scene->DrawBBox();
 } 
 
 // ------------------------------------------------------------------------------
