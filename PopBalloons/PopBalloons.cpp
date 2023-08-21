@@ -60,7 +60,7 @@ void PopBalloons::Init()
         balloon->MoveTo(random(80,900), random(500,800));
         scene->Add(balloon, MOVING);
      }
-    /*
+   
     for (int i = 0; i < 20; i++) {
       balloon = new Balloon();
       balloon->MoveTo(random(80, 900), random(800, 1200));
@@ -77,7 +77,7 @@ void PopBalloons::Init()
         balloon->MoveTo(random(80, 900), random(1500, 3000));
         scene->Add(balloon, MOVING);
     }
-    */
+  
     audio->Play(MENUAUDIO);
 }
 
