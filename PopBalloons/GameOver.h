@@ -6,6 +6,7 @@ class GameOver : public Game
 {
 private:
 	Sprite* background;
+	bool ctrlKeySPC = false;
 
 public:
 	void Init();

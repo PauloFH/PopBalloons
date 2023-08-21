@@ -1,21 +1,26 @@
 #include "GameOver.h"
 #include "Player.h"
+#include "telaInicial.h"
 
 void GameOver::Init()
 {
-    background = new Sprite("Resources/GameOver.png"); // placeholder
+    background = new Sprite("Resources/GameOver.png");
 }
 
 // ------------------------------------------------------------------------------
 
 void GameOver::Update()
 {
-    // sai com pressionamento do ESC
-    if (window->KeyDown(VK_ESCAPE))
+    if (ctrlKeySPC && window->KeyUp(VK_SPACE)) {
+        ctrlKeySPC = false;
+        Engine::Next<TelaInicial>();
+    }
+    else if (window->KeyDown(VK_SPACE)) {
+        ctrlKeySPC = true;
+    }
+
+    if( window->KeyDown(VK_ESCAPE))
         window->Close();
-    
-    //if( window->KeyDown('R'))
-        //Engine::Next<QualéaTelaInicial?>();
 } 
 
 // ------------------------------------------------------------------------------
