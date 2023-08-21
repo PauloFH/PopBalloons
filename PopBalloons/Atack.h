@@ -12,6 +12,7 @@ private:
 	Sprite* sprite;
 	int vel;
 	int untilY;
+	uint validAtack;
 	stringstream text;
 public:
 	Atack(Image * image, int untilY);
