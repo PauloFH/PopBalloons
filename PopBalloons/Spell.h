@@ -1,6 +1,8 @@
 #include "Object.h"
 #include "TileSet.h"
 #include "Animation.h"
+#include <sstream>
+using std::stringstream;
 
 enum Spells {
 	Q,
@@ -23,6 +25,7 @@ private:
 	uint spellType;
 	uint time;
 	uint direction = TOLEFT;
+	stringstream text;
 public:
 	Spell(TileSet* tileset, int posX, int posY, uint spellType);
 	Spell(TileSet* tileset, int posX, int posY, uint spellType, uint direction);

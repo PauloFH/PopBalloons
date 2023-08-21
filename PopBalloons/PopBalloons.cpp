@@ -27,6 +27,11 @@ void PopBalloons::Init()
     Balloon::pontuacao = 0;
     Player::life = 5;
     Player::state = PLENO;
+    // Definindo tempo de cdr das skills como um valor muito alto, pra começarem disponíveis
+    Player::cdrQ = 60 * 6;
+    Player::cdrW = 60 * 15;
+    Player::cdrE = 60 * 10;
+    Player::cdrR = 60 * 3;
     pontuacao = "";
     placarDraw = "Placar: ";
     placar = new Font("Resources/FixedSys30.png");

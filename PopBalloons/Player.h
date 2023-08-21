@@ -16,6 +16,23 @@ private:
 	Image* atack;
 	int vel;
 	stringstream text;
+
+	// Imagens para os ícones das spells
+	Image* iconQ;
+	Image* xiconQ;
+	Image* darkIconQ;
+	Sprite* spriteQ;
+	Image* iconW;
+	Image* xiconW;
+	Sprite* spriteW;
+	Image* iconE;
+	Image* xiconE;
+	Sprite* spriteE;
+	Image* iconR;
+	Image* xiconR;
+	Sprite* spriteR;
+
+	// Variáveis pras spells
 	bool spellQ;
 	TileSet* tileSpellQ;
 	bool spellW;
@@ -28,6 +45,7 @@ private:
 public:
 	static int life;
 	static uint state;
+	static uint cdrQ, cdrW, cdrE, cdrR;
 
 	Player();
 	~Player();
@@ -35,6 +53,3 @@ public:
 	void Draw();
 	void OnCollision(Object * obj);
 };
-
-inline void Player::Draw(){animation->Draw(x, y, z);};
-
