@@ -1,6 +1,8 @@
 
 # Pop the Balloons
 
+![image](https://github.com/lryanborges/PopBalloons/assets/10001686/186989af-4c6b-435f-b98a-6d03647fc3d6)
+
 Era uma vez, em uma vila mágica chamada Encantolândia, vivia uma bruxinha muito sapeca chamada Amelie. Ela tinha cabelos negros como a noite e olhos brilhantes que faiscavam de curiosidade. Amelie adorava explorar os recantos mais secretos da vila e, com seu toque mágico, transformava até as tarefas mais simples em aventuras emocionantes.
 
 Um dia, enquanto Amelie explorava a floresta encantada nos arredores da vila, ela ouviu risadinhas distantes. Seguindo o som, ela se deparou com um grupo de crianças brincando com balões coloridos. Ela observou enquanto os balões flutuavam pelo ar, enchendo o dia com cores vibrantes e risadas.
