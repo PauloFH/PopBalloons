@@ -3,13 +3,19 @@
 #include "TileSet.h"
 #include "Animation.h"
 #include <sstream>
+#include "Audio.h"
 using std::stringstream;
 
 enum State {NORMAL, POP};
 
+enum SondBalloon {
+	POPBALLOON_
+};
+
 class Balloon : public Object {
 
 private:
+	static Audio* audio;
 	TileSet* tileset = nullptr;
 	Sprite* sprite = nullptr;
 	Animation* animation = nullptr;

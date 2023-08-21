@@ -7,9 +7,10 @@
 //---------------------------------------------------------------------------------------------------------
 
 int Balloon::pontuacao = 0;
-
+Audio * Balloon::audio = new Audio();;
 Balloon::Balloon() {
 
+	audio->Add(POPBALLOON_, "Resources/PopBalloon.wav");
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
 	animation = new Animation(tileset, 0.1f, true);
 	vel = 40;
@@ -56,6 +57,7 @@ void Balloon::Update() {
 	animation->NextFrame();
 
 	if (animation->Frame() == 5) {
+		audio->Play(POPBALLOON_);
 		PopBalloons::scene->Delete();
 		pontuacao = pontuacao + 1;
 	}
@@ -68,5 +70,7 @@ void Balloon::OnCollision(Object * obj) {
 	}
 	if (obj->Type() == SPELLQ) {
 		state = POP;
+
 	}
+	
 }

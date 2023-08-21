@@ -2,11 +2,13 @@
 #include "Image.h"
 #include "Sprite.h"
 #include <sstream>
+#include "Audio.h"
 using std::stringstream;
 
 class Atack : public Object {
 
 private:
+	Audio * audio;
 	Sprite* sprite;
 	int vel;
 	int untilY;

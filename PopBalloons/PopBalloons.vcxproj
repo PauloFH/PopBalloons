@@ -241,6 +241,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Atack.cpp" />
+    <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Balloon.cpp" />
     <ClCompile Include="Cat.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -257,6 +258,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Spell.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="telaInicial.cpp" />
@@ -268,6 +270,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Atack.h" />
+    <ClInclude Include="Audio.h" />
     <ClInclude Include="Balloon.h" />
     <ClInclude Include="Cat.h" />
     <ClInclude Include="Engine.h" />
@@ -285,6 +288,7 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Spell.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="telaInicial.h" />

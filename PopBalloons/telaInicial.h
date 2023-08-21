@@ -21,12 +21,17 @@
 #include "TileSet.h"
 #include "Gif.h"
 #include "Balloon.h"
+#include "Audio.h"
 
+// ---------------------------------------------------------------------------------
+
+enum Soundsinto {INTRO};
 // ---------------------------------------------------------------------------------
 
 class TelaInicial : public Game
 {
 private:
+    Audio  * audio   = nullptr;
    Sprite  * backg   = nullptr;
    TileSet * tileset = nullptr;
    Gif     * gif     = nullptr;

@@ -5,6 +5,7 @@
 #include "Resources.h"
 #include "Scene.h"
 #include <string.h>
+#include "Audio.h"
 
 
 enum ObjTypes
@@ -17,14 +18,20 @@ enum ObjTypes
     SPELLE,
     SPELLR
 };
-
+enum Sonds {
+    MENUAUDIO,
+    LAUGHT,
+    CHILDS,
+    BALLOONT
+};
 class PopBalloons : public Game
 {
 private:
-    Sprite* background;
-    Sprite* gram;
-    Sprite* wall;
-    Font* placar;
+    Audio  * audio;
+    Sprite * background;
+    Sprite * gram;
+    Sprite * wall;
+    Font   * placar;
     string placarDraw;
 
 public:

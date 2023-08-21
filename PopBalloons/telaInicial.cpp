@@ -16,23 +16,27 @@ Scene * TelaInicial::scene = nullptr;
 
 // -----------------------------------------------------------------------------
 void TelaInicial::Init()
-{
+{   
     backg = new Sprite("Resources/fi.png"); // fundo completo
     tileset = new TileSet("Resources/menu.png", 94.5, 142, 6, 60);; //animação do player na tela de inicio
+    audio = new Audio();
+    audio->Add(INTRO,"Resources/into.wav");
+    
+    
     gif = new Gif(tileset);
    scene = new Scene();
    scene->Add(gif, STATIC);
     title = new Gif();
     scene->Add(title, STATIC);
-
+    audio->Play(INTRO);
 
 }
 
 void TelaInicial::Update()
 {    
-        if (window->KeyDown(VK_SPACE))
+    if (window->KeyDown(VK_SPACE)){
             Engine::Next<PopBalloons>();
-
+    }
     
     // sai com pressionamento do ESC
     if (window->KeyDown(VK_ESCAPE))
@@ -55,6 +59,7 @@ void TelaInicial::Finalize()
     //delete scene;
     delete backg;
     delete tileset;
+    delete audio;
 }
 
 

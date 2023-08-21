@@ -24,6 +24,9 @@ std::mt19937 gen(rd());
 
 void PopBalloons::Init()
 {
+    audio = new Audio();
+    audio->Add(MENUAUDIO, "Resources/game_thame.wav");
+    
     Balloon::pontuacao = 0;
     Player::life = 5;
     Player::state = PLENO;
@@ -69,99 +72,7 @@ void PopBalloons::Init()
         balloon->MoveTo(random(80, 900), random(1500, 3000));
         scene->Add(balloon, MOVING);
     }
-    /*
-    balloon = new Balloon();
-    balloon->MoveTo(200, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(300, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(400, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(500, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(600, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(700, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(800, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(900, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(100, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(200, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(300, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(400, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(500, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(300, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(400, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(500, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(600, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(700, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(800, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(900, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(1000, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(1100, random(800, 2000));
-    scene->Add(balloon, MOVING);
-
-    balloon = new Balloon();
-    balloon->MoveTo(1200, random(800, 2000));
-    scene->Add(balloon, MOVING);
-    */
+    audio->Play(MENUAUDIO);
 }
 
 // ------------------------------------------------------------------------------
@@ -200,6 +111,7 @@ void PopBalloons::Finalize()
     delete gram;
     delete background;
     delete scene;
+    delete audio;
 }
 
 int PopBalloons::random(int low, int high)

@@ -7,6 +7,14 @@ int Player::life = 5;
 uint Player::state = PLENO;
 
 Player::Player() {
+	audio = new Audio();
+	audio->Add(ATTACK,"Resources/Spell_attack.wav");
+	audio->Add(DAMEGE, "Resources/damege.wav");
+	audio->Add(SPELL_EXPLOSION, "Resources/Spell_Explosion.wav");
+	audio->Add(SPELL_WALL, "Resources/Spell_wall.wav");
+	audio->Add(SPELL_PUXAR, "Resources/Spell_puxar.wav");
+	audio->Add(SPELL_WIND, "Resources/wind.wav");
+
 	tileset = new TileSet("Resources/playercomplet.png", 95.89, 143, 1, 9);
 	animation = new Animation(tileset, 0.25f, true);
 	uint pleno[6] = { 0, 1, 2, 3, 4, 5 };
@@ -44,6 +52,7 @@ Player::~Player() {
 	delete tileSpellW;
 	delete tileSpellE;
 	delete tileSpellR;
+	delete audio;
 }
 
 void Player::Update() {
@@ -53,6 +62,7 @@ void Player::Update() {
 
 	// muda os estados
 	if (state == HITED && animation->Frame() == 8) {
+		audio->Play(DAMEGE);
 		state = PLENO;
 	}
 
@@ -78,9 +88,11 @@ void Player::Update() {
 	}
 	// Basic atack
 	if (window->KeyPress(VK_LBUTTON)) {
+
 		Atack* hit = new Atack(atack, window->MouseY());
 		hit->MoveTo(x, y);
 		PopBalloons::scene->Add(hit, MOVING);
+		
 	}
 
 	// Spell Q
@@ -88,6 +100,7 @@ void Player::Update() {
 		spellQ = true;
 	}
 	if (spellQ) {
+		audio->Play(SPELL_EXPLOSION);
 		Spell* power = new Spell(tileSpellQ, window->MouseX(), window->MouseY(), Q);
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
@@ -102,6 +115,8 @@ void Player::Update() {
 		spellW = true;
 	}
 	if (spellW) {
+
+		audio->Play(SPELL_PUXAR);
 		Spell* power = new Spell(tileSpellW, window->MouseX(), window->MouseY(), W);
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
@@ -115,6 +130,7 @@ void Player::Update() {
 		spellE = true;
 	}
 	if (spellE) {
+		audio->Play(SPELL_WALL);
 		Spell* power = new Spell(tileSpellE, window->MouseX(), window->MouseY(), E);
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
@@ -128,6 +144,7 @@ void Player::Update() {
 		spellR = true;
 	}
 	if (spellR) {
+		audio->Play(SPELL_WIND);
 		Spell* power = new Spell(tileSpellR, window->MouseX(), window->MouseY(), R, x);
 		PopBalloons::scene->Add(power, MOVING);
 		text.str("");
@@ -139,6 +156,7 @@ void Player::Update() {
 
 		// Duplo atk
 		if (window->KeyPress(VK_RBUTTON)) {
+
 			std::vector<Atack*> hits;
 			hits.push_back(new Atack(atack, window->MouseY()));
 			hits.push_back(new Atack(atack, window->MouseY()));

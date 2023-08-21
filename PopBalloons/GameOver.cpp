@@ -3,14 +3,20 @@
 #include "telaInicial.h"
 
 void GameOver::Init()
-{
+{   
+    audio = new Audio();
+    audio->Add(GAMEOVER, "Resources/Game_Lose.wav");
+   // audio->Add(CRY, "Resources/cry.wav");
     background = new Sprite("Resources/GameOver.png");
+    audio->Play(GAMEOVER);
+
 }
 
 // ------------------------------------------------------------------------------
 
 void GameOver::Update()
 {
+   // audio->Play(CRY);
     if (ctrlKeySPC && window->KeyUp(VK_SPACE)) {
         ctrlKeySPC = false;
         Engine::Next<TelaInicial>();
@@ -37,5 +43,6 @@ void GameOver::Draw()
 void GameOver::Finalize()
 {
     delete background;
+    delete audio;
 }
 
