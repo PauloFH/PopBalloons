@@ -25,6 +25,7 @@ private:
 
 
 public:
+	static int quantidade; //Quantidade de balões na fase
 	static int pontuacao;
 	Balloon();
 	~Balloon();

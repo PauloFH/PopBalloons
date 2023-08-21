@@ -1,15 +1,16 @@
-#include "Balloon.h"
+#include "Balloon.h";
 #include "PopBalloons.h"
 #include "Spell.h"
 #include "Player.h"
 #include "Lifes.h"
 
 //---------------------------------------------------------------------------------------------------------
-
+int Balloon::quantidade = 0;
 int Balloon::pontuacao = 0;
-Audio * Balloon::audio = new Audio();;
-Balloon::Balloon() {
+Audio * Balloon::audio = new Audio();
 
+Balloon::Balloon() {
+	 Balloon::state = NORMAL;
 	audio->Add(POPBALLOON_, "Resources/PopBalloon.wav");
 	tileset = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
 	animation = new Animation(tileset, 0.1f, true);
@@ -57,7 +58,7 @@ void Balloon::Update() {
 	animation->NextFrame();
 
 	if (animation->Frame() == 5) {
-		audio->Play(POPBALLOON_);
+
 		PopBalloons::scene->Delete();
 		pontuacao = pontuacao + 1;
 	}
@@ -66,11 +67,11 @@ void Balloon::Update() {
 void Balloon::OnCollision(Object * obj) {
 	if (obj->Type() == ATACK) {
 		state = POP;
+		audio->Play(POPBALLOON_);
 		PopBalloons::scene->Remove(obj, ATACK);
 	}
 	if (obj->Type() == SPELLQ) {
 		state = POP;
-
 	}
 	
 }

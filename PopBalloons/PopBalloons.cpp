@@ -5,7 +5,7 @@
 // Atualização: 16 Ago 2023
 // Compilador:  Visual C++ 2022
 //
-// Descrição:   Testa a classe Font com exibição de texto com diversas fontes.
+// Descrição:   POPBALLOONS.
 //
 **********************************************************************************/
 
@@ -42,7 +42,6 @@ void PopBalloons::Init()
     background = new Sprite("Resources/cloudybg.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
-
     scene = new Scene();
 
     Lifes* lifes = new Lifes();
