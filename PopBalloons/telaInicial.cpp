@@ -70,7 +70,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(1280, 680);
+    engine->window->Size(968, 680);
     engine->window->Color(200, 24, 240);
     engine->window->Title("Pop Balloons");
     engine->window->Icon(IDI_ICON);

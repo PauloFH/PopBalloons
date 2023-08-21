@@ -2,6 +2,9 @@
 #include "PopBalloons.h"
 #include "Spell.h"
 #include "Player.h"
+//---------------------------------------------------------------------------------------------------------
+
+int Balloon::pontuacao = 0;
 
 Balloon::Balloon() {
 
@@ -50,7 +53,7 @@ void Balloon::Update() {
 
 	if (animation->Frame() == 5) {
 		PopBalloons::scene->Delete();
-		
+		pontuacao = pontuacao + 1;
 	}
 }
 

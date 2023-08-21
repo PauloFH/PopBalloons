@@ -19,6 +19,7 @@ private:
 
 
 public:
+	static int pontuacao;
 	Balloon();
 	~Balloon();
 

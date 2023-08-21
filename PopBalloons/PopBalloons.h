@@ -29,7 +29,7 @@ private:
     string placarDraw;
 
 public:
-    int pontuacao;
+    string pontuacao;
     static Scene* scene;
     void Init();
     void Update();

@@ -23,8 +23,8 @@ std::mt19937 gen(rd());
 
 void PopBalloons::Init()
 {
-
-    pontuacao = 0;
+    Balloon::pontuacao = 0;
+    pontuacao = "";
     placarDraw = "Placar: ";
     placar = new Font("Resources/FixedSys30.png");
     placar->Spacing(80);    
@@ -156,13 +156,12 @@ void PopBalloons::Update()
     if (window->KeyDown('N'))
         Engine::Next<GameOver>();
 } 
-
 // ------------------------------------------------------------------------------
 
 void PopBalloons::Draw() {
-
+    pontuacao = std::to_string(Balloon::pontuacao);
     Color black(0.0f, 0.0f, 0.0f, 1.0f);
-    placar->Draw(100, 50, placarDraw + " 23" , black);
+    placar->Draw(100, 50, placarDraw + pontuacao , black);
     life->Draw(20, 20, Layer::UPPER);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
