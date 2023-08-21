@@ -25,8 +25,12 @@ std::mt19937 gen(rd());
 
 void PopBalloons::Init()
 {
+    frames = 0;
+    child = 0;
     audio = new Audio();
     audio->Add(MENUAUDIO, "Resources/game_thame.wav");
+    audio->Add(LAUGHT, "Resources/laugh_witch.wav");
+    audio->Add(CHILDS, "Resources/child.wav");
     
     Balloon::pontuacao = 0;
     Player::life = 5;
@@ -55,7 +59,7 @@ void PopBalloons::Init()
     scene->Add(player, MOVING);
    
     Balloon * balloon;
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 10; i++) {
         balloon = new Balloon();
         balloon->MoveTo(random(80,900), random(500,800));
         scene->Add(balloon, MOVING);
@@ -85,6 +89,28 @@ void PopBalloons::Init()
 
 void PopBalloons::Update()
 {
+    frames++;
+    child++;
+    if (frames >= laught) {
+        lg = true;
+
+    }
+    if (lg) {
+        frames = 0;
+        audio->Play(LAUGHT);
+        lg = false;
+
+    }
+    if (child >= 800) {
+        ch = true;
+
+    }
+    if (ch) {
+        child = 0;
+        audio->Play(CHILDS);
+            ch = false;
+
+    }
 
     // sai com pressionamento do ESC
     if (window->KeyDown(VK_ESCAPE))

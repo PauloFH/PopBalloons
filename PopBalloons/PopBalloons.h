@@ -33,6 +33,11 @@ private:
     Sprite * wall;
     Font   * placar;
     string placarDraw;
+    int frames;
+    int child;
+    bool ch = false;
+    int laught = 600;
+    bool lg = false;
 
 public:
     string pontuacao;
