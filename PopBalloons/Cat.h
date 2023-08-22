@@ -12,7 +12,7 @@ private:
 	int ctFrames = 1600;
 	bool controlador = false;
 public:
-	Cat();
+	Cat(Audio* catAudio);
 	~Cat();
 
 	void Update();

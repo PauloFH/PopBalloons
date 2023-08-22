@@ -36,6 +36,7 @@ private:
     TileSet* tileBalloonRed;
     TileSet* tileBalloonBlue;
     Audio* balloonAudio;
+    Audio* catAudio;
     int frames;
     int child;
     bool ch = false;

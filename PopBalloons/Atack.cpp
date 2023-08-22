@@ -1,10 +1,8 @@
 #include "Atack.h"
 #include "PopBalloons.h"
 
-Audio * Atack::audio = new Audio();
-
-Atack::Atack(Image* image, int posY) {
-	audio->Add(1, "Resources/Spell_attack.wav");
+Atack::Atack(Audio* atkAudio, Image* image, int posY) {
+	audio = atkAudio;
 	untilY = posY;
 	sprite = new Sprite(image);
 	vel = 800;

@@ -14,7 +14,6 @@ Balloon::Balloon(Audio* bllnAudio, uint bllnType = 0, TileSet* tset = new TileSe
 
 	tileset = tset;
 	quantidade++;
-	 Balloon::state = NORMAL;
 	animation = new Animation(tileset, 0.1f, true);
 	vel = 40;
 
@@ -60,6 +59,13 @@ void Balloon::Update() {
 		OutputDebugString(text.str().c_str());
 	}
 
+	// não deixa sair da tela
+	if (x + tileset->TileWidth() / 2.0f > window->Width())
+		MoveTo(window->Width() - tileset->TileWidth() / 2.0f, y);
+
+	if (x - tileset->TileWidth() / 2.0f < 0)
+		MoveTo(tileset->TileWidth() / 2.0f, y);
+
 	if (animation->Frame() == 5 && balloonType == RED) {
 		audio->Play(POPBALLOON_);
 		PopBalloons::scene->Delete();
@@ -84,7 +90,6 @@ void Balloon::OnCollision(Object * obj) {
 	} else if (balloonType == BLUE && obj->Type() == ATACK) {
 		state = POP;
 		PopBalloons::scene->Delete(obj, ATACK);
-		audio->Play(POPBALLOON_);
 	}
 	if (obj->Type() == SPELLQ) {
 		state = POP;
