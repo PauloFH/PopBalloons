@@ -16,12 +16,14 @@ void Level2::Init() {
 
     balloonAudio2 = new Audio();
     balloonAudio2->Add(POPBALLOON_, "Resources/PopBalloon.wav");
+
     catAudio2 = new Audio();
-    catAudio2->Add(100, "Resources/cat.wav");
+    catAudio2->Add(CAT, "Resources/cat.wav");
 
     audio = new Audio();
     audio->Add(MENUAUDIO, "Resources/game_thame.wav");
-
+    audio->Add(LAUGHT, "Resources/laugh_witch.wav");
+    audio->Add(CHILDS,"Resources/child.wav" );
     pontuacao2 = "";
     placarDraw = "Score: ";
     placar = new Font("Resources/FixedSys30.png");
@@ -85,6 +87,7 @@ void Level2::Update() {
 
     frames++;
     child++;
+
     if (frames >= laught) {
         lg = true;
 
