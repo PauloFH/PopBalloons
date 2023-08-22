@@ -41,7 +41,7 @@ void Level2::Init() {
     Lifes* lifes = new Lifes();
     scene2->Add(lifes, STATIC);
 
-    Cat* cat = new Cat(catAudio2);
+    Cat* cat = new Cat(catAudio2, LEFTCAT);
     scene2->Add(cat, STATIC);
 
     Player* player2 = new Player();
@@ -117,11 +117,11 @@ void Level2::Update() {
         window->Close();
 
 
-    if (Balloon::quantidade == 0 || (window->KeyDown('G'))) {
+    if (Balloon::quantidade == 0 || (window->KeyPress('G'))) {
         Engine::Next<Vitoria>();
     }
 
-    if (window->KeyDown('N') || Player::life <= 0)
+    if (window->KeyPress('N') || Player::life <= 0)
         Engine::Next<GameOver>();
 }
 

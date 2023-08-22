@@ -5,7 +5,9 @@
 #include "Resources.h"
 #include "Scene.h"
 #include <string.h>
+#include <sstream>
 #include "Audio.h"
+using std::stringstream;
 
 
 enum ObjTypes
@@ -42,6 +44,7 @@ private:
     bool ch = false;
     int laught = 600;
     bool lg = false;
+    stringstream text;
 
 public:
     string pontuacao;

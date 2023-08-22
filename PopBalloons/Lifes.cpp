@@ -1,13 +1,13 @@
 #include "Lifes.h"
 #include "Player.h"
 
-bool Lifes::takeDamage = false;
+uint Lifes::takeDamage = 0;
 
 Lifes::Lifes() {
 	tileset = new TileSet("Resources/lifes.png", 210, 37, 6, 6);
 	animation = new Animation(tileset, 0.1f, false);
 
-	takeDamage = false;
+	takeDamage = 0;
 
 	MoveTo(120, 30);
 }
@@ -18,9 +18,9 @@ Lifes::~Lifes() {
 }
 
 void Lifes::Update() {
-	if (takeDamage) {
+	while (takeDamage != 0) {
 		animation->NextFrame();
-		takeDamage = false;
+		takeDamage--;
 	}
 }
 

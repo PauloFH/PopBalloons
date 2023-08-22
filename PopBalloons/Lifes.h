@@ -7,7 +7,7 @@ private:
 	TileSet* tileset;
 	Animation* animation;
 public:
-	static bool takeDamage;
+	static uint takeDamage;
 
 	Lifes();
 	~Lifes();

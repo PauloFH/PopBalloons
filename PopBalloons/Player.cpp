@@ -16,11 +16,9 @@ Player::Player() {
 	audio->Add(SPELL_PUXAR, "Resources/Spell_puxar.wav");
 	audio->Add(SPELL_WIND, "Resources/wind.wav");
 
-	atkAudio = new Audio();
-	atkAudio->Add(1, "Resources/Spell_attack.wav");
-
 	tileset = new TileSet("Resources/playercomplet.png", 95.89, 143, 1, 9);
 	animation = new Animation(tileset, 0.25f, true);
+	tilesetAtack = new TileSet("Resources/playerAtack.png", 153, 153, 1, 5);
 	uint pleno[6] = { 0, 1, 2, 3, 4, 5 };
 	uint hited[3] = { 6, 7, 8 };
 	animation->Add(PLENO, pleno, 6);
@@ -64,15 +62,15 @@ Player::Player() {
 }
 
 Player::~Player() {
-	delete tileset;
-	delete animation;
+	delete audio;
 	delete atack;
-	delete atkAudio;
+	delete tileset;
+	delete tilesetAtack;
+	delete animation;
 	delete tileSpellQ;
 	delete tileSpellW;
 	delete tileSpellE;
 	delete tileSpellR;
-	delete audio;
 	delete iconQ;
 	delete xiconQ;
 	delete darkIconQ;
@@ -95,10 +93,6 @@ void Player::Update() {
 		audio->Play(DAMEGE);
 		state = PLENO;
 	}
-
-	animation->Select(state);
-	animation->NextFrame();
-
 
 	// Movimentação
 	if (window->KeyDown(VK_LEFT)) {
@@ -123,7 +117,7 @@ void Player::Update() {
 	// Basic atack
 	if (window->KeyPress(VK_LBUTTON)) {
 
-		Atack* hit = new Atack(atkAudio, atack, window->MouseY());
+		Atack* hit = new Atack(atack, window->MouseY());
 		hit->MoveTo(x, y);
 		PopBalloons::scene->Add(hit, MOVING);
 		
@@ -137,6 +131,8 @@ void Player::Update() {
 		int cdr = cdrQ / 60; // retorna o valor, em segundos, que faltam pra retornar a skill
 	}
 	if (window->KeyPress('Q') && (cdrQ >= 6 * 60)) {
+		atacking = true;
+		animation = new Animation(tilesetAtack, 0.25f, true);
 		spellQ = true;
 		cdrQ = 0;
 		spriteQ = new Sprite(xiconQ);
@@ -146,6 +142,16 @@ void Player::Update() {
 		Spell* power = new Spell(tileSpellQ, window->MouseX(), window->MouseY(), Q);
 		PopBalloons::scene->Add(power, MOVING);
 		spellQ = false;
+	}
+	if (atacking) {
+		if (animation->Frame() == 4) {
+			atacking = false;
+			animation = new Animation(tileset, 0.25f, true);
+			uint pleno[6] = { 0, 1, 2, 3, 4, 5 };
+			uint hited[3] = { 6, 7, 8 };
+			animation->Add(PLENO, pleno, 6);
+			animation->Add(HITED, hited, 3);
+		}
 	}
 
 	// Spell W
@@ -201,6 +207,9 @@ void Player::Update() {
 		cdrW++;
 		cdrE++;
 		cdrR++;
+
+		animation->Select(state);
+		animation->NextFrame();
 };
 
 
