@@ -1,8 +1,7 @@
 #include "Atack.h"
 #include "PopBalloons.h"
 
-Atack::Atack(Audio* atkAudio, Image* image, int posY) {
-	audio = atkAudio;
+Atack::Atack(Image* image, int posY) {
 	untilY = posY;
 	sprite = new Sprite(image);
 	vel = 800;

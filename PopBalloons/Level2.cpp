@@ -41,7 +41,7 @@ void Level2::Init() {
     Lifes* lifes = new Lifes();
     scene2->Add(lifes, STATIC);
 
-    Cat* cat = new Cat(catAudio2);
+    Cat* cat = new Cat(catAudio2, LEFTCAT);
     scene2->Add(cat, STATIC);
 
     Player* player2 = new Player();

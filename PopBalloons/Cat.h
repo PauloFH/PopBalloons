@@ -3,6 +3,11 @@
 #include "Animation.h"
 #include "Audio.h"
 
+enum catState {
+	LEFTCAT,
+	RIGHTCAT
+};
+
 class Cat : public Object {
 private:
 	TileSet  * tileset;
@@ -11,8 +16,9 @@ private:
 	int frames = 0;
 	int ctFrames = 1600;
 	bool controlador = false;
+	uint stateCat;
 public:
-	Cat(Audio* catAudio);
+	Cat(Audio* catAudio, uint ctStt);
 	~Cat();
 
 	void Update();

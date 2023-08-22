@@ -51,7 +51,7 @@ void Balloon::Update() {
 
 		Player::state = HITED;
 		Player::life--;
-		Lifes::takeDamage = true;
+		Lifes::takeDamage++;
 
 		text.str("");
 

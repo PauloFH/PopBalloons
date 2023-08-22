@@ -25,6 +25,8 @@ private:
 	Animation* animation;
 	Sprite* sprite;
 	Image* atack;
+	TileSet* tilesetAtack;
+	bool atacking;
 	int vel;
 	stringstream text;
 

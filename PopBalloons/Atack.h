@@ -15,7 +15,7 @@ private:
 	uint validAtack;
 	stringstream text;
 public:
-	Atack(Audio* atkAudio, Image * image, int untilY);
+	Atack(Image * image, int untilY);
 	~Atack();
 	void Update();
 	void Draw();
