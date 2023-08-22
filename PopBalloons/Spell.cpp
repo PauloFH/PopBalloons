@@ -73,11 +73,11 @@ void Spell::Update() {
 		PopBalloons::scene->Delete();
 	}
 
-	if (time >= 10 / gameTime && spellType == W) {
+	if (time >= 10 * 60 && spellType == W) {
 		PopBalloons::scene->Delete();
 	}
 
-	if (spellType == E && time >= 10 / gameTime) {
+	if (spellType == E && time >= 10 * 60) {
 		PopBalloons::scene->Delete();
 	}
 
@@ -117,6 +117,11 @@ void Spell::OnCollision(Object * obj) {
 				obj->Translate(100 * gameTime, 0);
 			}
 			obj->Translate(0, 120 * gameTime);
+		}
+	}
+	else {
+		if (obj->Type() == ATACK && spellType == E) {
+			PopBalloons::scene->Delete(obj, ATACK);
 		}
 	}
 }

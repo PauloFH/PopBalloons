@@ -12,28 +12,33 @@
 #include "PopBalloons.h"
 // -----------------------------------------------------------------------------
 
-Scene * TelaInicial::scene = nullptr;
+Scene * TelaInicial::sceneI;
 
 // -----------------------------------------------------------------------------
 void TelaInicial::Init()
 {   
-    backg = new Sprite("Resources/fi.png"); // fundo completo
+    background = new Sprite("Resources/cloudybg.png");
+    gram = new Sprite("Resources/gram.png");
+    wall = new Sprite("Resources/wall.png");
+    nome = new Sprite("Resources/nome.png");
     tileset = new TileSet("Resources/menu.png", 94.5, 142, 6, 60);; //animação do player na tela de inicio
     audio = new Audio();
     audio->Add(INTRO,"Resources/into.wav");
     
-    
-    gif = new Gif(tileset);
-   scene = new Scene();
-   scene->Add(gif, STATIC);
-    title = new Gif();
-    scene->Add(title, STATIC);
+    sceneI = new Scene();
+
+    Gif * gif = new Gif(tileset);
+    sceneI->Add(gif, STATIC);
+    Gif * title = new Gif();
+    sceneI->Add(title, STATIC);
     audio->Play(INTRO);
 
 }
 
 void TelaInicial::Update()
-{    
+{
+    sceneI->Update();
+
     if (window->KeyDown(VK_SPACE)){
             Engine::Next<PopBalloons>();
     }
@@ -42,22 +47,24 @@ void TelaInicial::Update()
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
 
-  
-
-   scene->Update();
 }
 
 void TelaInicial::Draw()
 {
-    backg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
-    scene->Draw();
-
+    background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
+    wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
+    gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);
+    nome->Draw(window->CenterX(), window->CenterY() - 100, Layer::FRONT);
+    sceneI->Draw();
 }
 
 void TelaInicial::Finalize()
 {
-    //delete scene;
-    delete backg;
+    delete sceneI;
+    delete background;
+    delete gram;
+    delete wall;
+    delete nome;
     delete tileset;
     delete audio;
 }

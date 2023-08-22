@@ -17,14 +17,18 @@
 #include "Lifes.h"
 #include <iostream>
 #include <random>
-#include "Vitoria.h"
+#include "Level2.h"
 
-Scene* PopBalloons::scene = nullptr;
+Scene* PopBalloons::scene;
 std::random_device rd;
 std::mt19937 gen(rd());
 
 void PopBalloons::Init()
 {
+    balloonAudio = new Audio();
+    balloonAudio->Add(POPBALLOON_, "Resources/PopBalloon.wav");
+    catAudio = new Audio();
+    catAudio->Add(100, "Resources/cat.wav");
     frames = 0;
     child = 0;
     audio = new Audio();
@@ -32,6 +36,7 @@ void PopBalloons::Init()
     audio->Add(LAUGHT, "Resources/laugh_witch.wav");
     audio->Add(CHILDS, "Resources/child.wav");
     
+    Balloon::quantidade = 0;
     Balloon::pontuacao = 0;
     Player::life = 5;
     Player::state = PLENO;
@@ -41,46 +46,34 @@ void PopBalloons::Init()
     Player::cdrE = 60 * 10;
     Player::cdrR = 60 * 3;
     pontuacao = "";
-    placarDraw = "Placar: ";
+    placarDraw = "Score: ";
     placar = new Font("Resources/FixedSys30.png");
     placar->Spacing(65);    
     background = new Sprite("Resources/cloudybg.png");
     gram = new Sprite("Resources/gram.png");
     wall = new Sprite("Resources/wall.png");
+    tileBalloonRed = new TileSet("Resources/balloon.png", 86, 90, 6, 6);
+    tileBalloonBlue = new TileSet("Resources/blueBalloon.png", 86, 90, 6, 6);
+
     scene = new Scene();
 
     Lifes* lifes = new Lifes();
     scene->Add(lifes, STATIC);
 
-    Cat* cat = new Cat();
+    Cat* cat = new Cat(catAudio);
     scene->Add(cat, STATIC);
   
     Player* player = new Player();
     scene->Add(player, MOVING);
    
     Balloon * balloon;
-    for (int i = 0; i < 10; i++) {
-        balloon = new Balloon();
-        balloon->MoveTo(random(80,900), random(500,800));
-        scene->Add(balloon, MOVING);
-     }
-   
-    for (int i = 0; i < 20; i++) {
-      balloon = new Balloon();
-      balloon->MoveTo(random(80, 900), random(800, 1200));
-      scene->Add(balloon, MOVING);
-    }
 
-    for (int i = 0; i < 20; i++) {
-        balloon = new Balloon();
-        balloon->MoveTo(random(80, 900), random(1200, 1500));
-        scene->Add(balloon, MOVING);
-    }
-    for (int i = 0; i < 100; i++) {
-        balloon = new Balloon();
-        balloon->MoveTo(random(80, 900), random(1500, 3000));
-        scene->Add(balloon, MOVING);
-    }
+    for (int i = 0; i < 80; i++) {
+        balloon = new Balloon(balloonAudio, RED, tileBalloonRed);
+        balloon->MoveTo(random(80,900), random(500, 1000));
+        scene->Add(balloon, STATIC);
+     }
+  
   
     audio->Play(MENUAUDIO);
 }
@@ -108,20 +101,19 @@ void PopBalloons::Update()
     if (ch) {
         child = 0;
         audio->Play(CHILDS);
-            ch = false;
+        ch = false;
 
     }
-
-    // sai com pressionamento do ESC
-    if (window->KeyDown(VK_ESCAPE))
-        window->Close();
 
     scene->Update();
     scene->CollisionDetection();
 
-    if (Balloon::quantidade == 0 || (window->KeyDown('G'))) {
-
-        Engine::Next<Vitoria>();
+    // sai com pressionamento do ESC
+    if (window->KeyDown(VK_ESCAPE))
+        window->Close();
+  
+    if (Balloon::quantidade == 0 || (window->KeyDown('2'))) {
+        Engine::Next<Level2>();
     }
 
     if (window->KeyDown('N') || Player::life <= 0){
@@ -142,18 +134,22 @@ void PopBalloons::Draw() {
     wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
     gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);
     scene->Draw();
-    scene->DrawBBox();
 } 
 
 // ------------------------------------------------------------------------------
 
 void PopBalloons::Finalize()
 {
+    delete placar;
+    delete balloonAudio;
+    delete catAudio;
     delete wall;
     delete gram;
     delete background;
-    delete scene;
+    delete tileBalloonRed;
+    delete tileBalloonBlue;
     delete audio;
+    delete scene;
 }
 
 int PopBalloons::random(int low, int high)

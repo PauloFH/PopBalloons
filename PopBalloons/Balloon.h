@@ -7,6 +7,7 @@
 using std::stringstream;
 
 enum State {NORMAL, POP};
+enum BalloonType {RED, BLUE};
 
 enum SondBalloon {
 	POPBALLOON_
@@ -15,11 +16,11 @@ enum SondBalloon {
 class Balloon : public Object {
 
 private:
-	static Audio* audio;
+	Audio* audio;
 	TileSet* tileset = nullptr;
-	Sprite* sprite = nullptr;
 	Animation* animation = nullptr;
 	uint state;
+	uint balloonType;
 	stringstream text;
 	int vel;
 
@@ -27,7 +28,7 @@ private:
 public:
 	static int quantidade; //Quantidade de balões na fase
 	static int pontuacao;
-	Balloon();
+	Balloon(Audio* bllnAudio, uint bllnType, TileSet* tset);
 	~Balloon();
 
 	void Update();

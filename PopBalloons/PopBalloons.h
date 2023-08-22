@@ -33,6 +33,10 @@ private:
     Sprite * wall;
     Font   * placar;
     string placarDraw;
+    TileSet* tileBalloonRed;
+    TileSet* tileBalloonBlue;
+    Audio* balloonAudio;
+    Audio* catAudio;
     int frames;
     int child;
     bool ch = false;

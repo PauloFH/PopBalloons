@@ -16,6 +16,14 @@ void GameOver::Init()
 
 void GameOver::Update()
 {
+    if (!dw) {
+        fm++;
+        if (fm >= mfm) {
+            dw = true;
+            fm = 0;
+        }
+    }
+
    // audio->Play(CRY);
     if (ctrlKeySPC && window->KeyUp(VK_SPACE)) {
         ctrlKeySPC = false;
@@ -27,14 +35,6 @@ void GameOver::Update()
 
     if( window->KeyDown(VK_ESCAPE))
         window->Close();
-
-    if (!dw) {
-        fm++;
-        if (fm >= mfm) {
-            dw = true;
-            fm = 0;
-        }
-    }
 
 } 
 
@@ -63,8 +63,8 @@ void GameOver::Draw()
 
 void GameOver::Finalize()
 {
-    delete background;
     delete audio;
+    delete background;
     delete font;
 }
 

@@ -20,6 +20,7 @@ enum Sounds {
 class Player : public Object {
 private:
 	Audio * audio;
+	Audio* atkAudio;
 	TileSet* tileset;
 	Animation* animation;
 	Sprite* sprite;
