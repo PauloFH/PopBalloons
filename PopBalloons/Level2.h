@@ -17,9 +17,15 @@ private:
     Sprite* wall;
     Font* placar;
     string placarDraw;
-    TileSet* tileBalloonRed;
-    TileSet* tileBalloonBlue;
-    Audio* balloonAudio;
+    TileSet* tileBalloonRed2;
+    TileSet* tileBalloonBlue2;
+    Audio* balloonAudio2;
+    Audio* catAudio2;
+    int frames;
+    int child;
+    bool ch = false;
+    int laught = 600;
+    bool lg = false;
 
 public:
     string pontuacao2;

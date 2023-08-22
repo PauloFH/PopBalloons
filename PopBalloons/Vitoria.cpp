@@ -15,6 +15,13 @@ void Vitoria::Init()
 
 void Vitoria::Update()
 {
+    if (!dw) {
+        fm++;
+        if (fm >= mfm) {
+            dw = true;
+            fm = 0;
+        }
+    }
 
     if (ctrlKeySPC && window->KeyUp(VK_SPACE)) {
         ctrlKeySPC = false;
@@ -27,13 +34,7 @@ void Vitoria::Update()
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
 
-    if (!dw) {
-        fm++;
-        if (fm >= mfm) {
-            dw = true;
-            fm = 0;
-        }
-    }
+   
 }
 
 void Vitoria::Draw()

@@ -1,11 +1,10 @@
 #include "Cat.h"
 
-Cat::Cat() {
+Cat::Cat(Audio* catAudio) {
     frames = 0;
     tileset = new TileSet("Resources/cat.png", 48, 48, 15, 15);
     animation = new Animation(tileset, 0.5f, true);
-    audio = new Audio();
-    audio->Add(100, "Resources/cat.wav");
+    audio = catAudio;
     MoveTo(900, 505);
 
 }
@@ -13,7 +12,6 @@ Cat::Cat() {
 Cat::~Cat() {
     delete tileset;
     delete animation;
-    delete audio;
 }
 
 void Cat::Update() {

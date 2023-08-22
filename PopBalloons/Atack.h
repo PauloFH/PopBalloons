@@ -8,16 +8,15 @@ using std::stringstream;
 class Atack : public Object {
 
 private:
-	
+	Audio* audio;
 	Sprite* sprite;
 	int vel;
 	int untilY;
 	uint validAtack;
 	stringstream text;
 public:
-	Atack(Image * image, int untilY);
+	Atack(Audio* atkAudio, Image * image, int untilY);
 	~Atack();
-	static Audio* audio;
 	void Update();
 	void Draw();
 	void OnCollision(Object* obj);

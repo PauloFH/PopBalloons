@@ -16,6 +16,9 @@ Player::Player() {
 	audio->Add(SPELL_PUXAR, "Resources/Spell_puxar.wav");
 	audio->Add(SPELL_WIND, "Resources/wind.wav");
 
+	atkAudio = new Audio();
+	atkAudio->Add(1, "Resources/Spell_attack.wav");
+
 	tileset = new TileSet("Resources/playercomplet.png", 95.89, 143, 1, 9);
 	animation = new Animation(tileset, 0.25f, true);
 	uint pleno[6] = { 0, 1, 2, 3, 4, 5 };
@@ -64,6 +67,7 @@ Player::~Player() {
 	delete tileset;
 	delete animation;
 	delete atack;
+	delete atkAudio;
 	delete tileSpellQ;
 	delete tileSpellW;
 	delete tileSpellE;
@@ -86,14 +90,15 @@ Player::~Player() {
 
 void Player::Update() {
 
-	animation->Select(state);
-	animation->NextFrame();
-
 	// muda os estados
 	if (state == HITED && animation->Frame() == 8) {
 		audio->Play(DAMEGE);
 		state = PLENO;
 	}
+
+	animation->Select(state);
+	animation->NextFrame();
+
 
 	// Movimentação
 	if (window->KeyDown(VK_LEFT)) {
@@ -118,7 +123,7 @@ void Player::Update() {
 	// Basic atack
 	if (window->KeyPress(VK_LBUTTON)) {
 
-		Atack* hit = new Atack(atack, window->MouseY());
+		Atack* hit = new Atack(atkAudio, atack, window->MouseY());
 		hit->MoveTo(x, y);
 		PopBalloons::scene->Add(hit, MOVING);
 		
