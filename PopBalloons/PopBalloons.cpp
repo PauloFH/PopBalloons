@@ -86,22 +86,22 @@ void PopBalloons::Init()
         scene->Add(balloon, MOVING);
     }
 
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 15; i++) {
         balloon = new Balloon(balloonAudio, BLUE, tileBalloonBlue);
         balloon->MoveTo(random(80, 900), random(1200, 1500));
         scene->Add(balloon, MOVING);
     }
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 35; i++) {
         balloon = new Balloon(balloonAudio, RED, tileBalloonRed);
         balloon->MoveTo(random(80, 900), random(1500, 3000));
         scene->Add(balloon, MOVING);
     }
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 20; i++) {
         balloon = new Balloon(balloonAudio, BLUE, tileBalloonBlue);
         balloon->MoveTo(random(80, 900), random(2000, 3000));
         scene->Add(balloon, MOVING);
     }
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 20; i++) {
         balloon = new Balloon(balloonAudio, RED, tileBalloonRed);
         balloon->MoveTo(random(80, 900), random(1500, 3000));
         scene->Add(balloon, MOVING);

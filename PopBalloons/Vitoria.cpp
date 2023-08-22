@@ -43,11 +43,11 @@ void Vitoria::Draw()
     Color White(1.0f, 1.0f, 1.0f, 1.0f);
     fundo->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
 
-    text->Draw(300, 220, "WINNER!!", White, Layer::FRONT, 0.75f);
-    text->Draw(310, 300, "Thanks to play this game", White, Layer::UPPER, 0.25f);
+    text->Draw(320, 240, "WINNER!!", White, Layer::FRONT, 0.75f);
+    text->Draw(270, 310, "Thanks for playing this game", White, Layer::UPPER, 0.25f);
     if (dw) {
-        text->Draw(295, 400, "PRESS SPACE TO RESTART THE GAME", White, Layer::UPPER, 0.20f);
-        text->Draw(296, 400, "PRESS SPACE TO RESTART THE GAME", Black, Layer::FRONT, 0.20f);
+        text->Draw(295, 375, "PRESS SPACE TO RESTART THE GAME", White, Layer::UPPER, 0.20f);
+        text->Draw(296, 375, "PRESS SPACE TO RESTART THE GAME", Black, Layer::FRONT, 0.20f);
         fm++;
         if (fm >= mfm) {
             dw = false;

@@ -22,6 +22,7 @@
 #include "Gif.h"
 #include "Balloon.h"
 #include "Audio.h"
+#include "Font.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -36,8 +37,14 @@ private:
     Sprite* gram = nullptr;
     Sprite* wall = nullptr;
     Sprite* nome = nullptr;
+    Sprite* skills = nullptr;
+    Sprite* click = nullptr;
     TileSet * tileset = nullptr;
     Balloon * balloon = nullptr;
+    Font* text = nullptr;
+    int fm = 0;
+    int mfm = 30;
+    bool dw = false;
     bool ini;
     int time;
 public:
