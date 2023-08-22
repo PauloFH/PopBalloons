@@ -10,7 +10,8 @@ enum State {NORMAL, POP};
 enum BalloonType {RED, BLUE};
 
 enum SondBalloon {
-	POPBALLOON_
+	POPBALLOON_, 
+	CAT
 };
 
 class Balloon : public Object {

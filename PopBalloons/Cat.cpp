@@ -1,4 +1,5 @@
 #include "Cat.h"
+#include "Balloon.h"
 
 Cat::Cat(Audio* catAudio) {
     frames = 0;
@@ -24,7 +25,7 @@ void Cat::Update() {
 
     if (controlador) {
         frames = 0;
-        audio->Play(100);
+        audio->Play(CAT);
         controlador = false;
     }
     animation->NextFrame();
