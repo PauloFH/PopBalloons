@@ -63,8 +63,8 @@ void GameOver::Draw()
 
 void GameOver::Finalize()
 {
-    delete background;
     delete audio;
+    delete background;
     delete font;
 }
 

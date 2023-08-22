@@ -11,7 +11,6 @@ Atack::Atack(Image* image, int posY) {
 	validAtack = 0;
 
 	type = ATACK;
-	audio->Play(1);
 }
 
 Atack::~Atack() {
@@ -25,7 +24,7 @@ void Atack::Update() {
 		validAtack++;
 	}
 
-	if (validAtack == 1) {	// pra fazer só 1 vez
+	if (validAtack == 1) {	// pra fazer sÃ³ 1 vez
 		BBox(new Rect(-6, -12.12, 5, 11.12));
 		text.str("");
 
@@ -43,5 +42,4 @@ void Atack::Update() {
 }
 
 void Atack::OnCollision(Object * obj) {
-
 }

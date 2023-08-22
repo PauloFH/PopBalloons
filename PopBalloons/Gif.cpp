@@ -19,5 +19,5 @@ void Gif::Update(){
 
 Gif::Gif(TileSet* tile){
 	this->ani = new Animation(tile, 0.10f, true);
-	MoveTo(window->CenterX(), window->CenterY() + 280);
+	MoveTo(window->CenterX(), window->CenterY() + 280, Layer::FRONT);
 }
