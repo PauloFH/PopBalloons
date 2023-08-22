@@ -1,7 +1,10 @@
 #include "Atack.h"
 #include "PopBalloons.h"
 
+Audio * Atack::audio = new Audio();
+
 Atack::Atack(Image* image, int posY) {
+	audio->Add(1, "Resources/Spell_attack.wav");
 	untilY = posY;
 	sprite = new Sprite(image);
 	vel = 800;
@@ -21,7 +24,7 @@ void Atack::Update() {
 		validAtack++;
 	}
 
-	if (validAtack == 1) {	// pra fazer só 1 vez
+	if (validAtack == 1) {	// pra fazer sÃ³ 1 vez
 		BBox(new Rect(-6, -12.12, 5, 11.12));
 		text.str("");
 

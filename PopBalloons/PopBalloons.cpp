@@ -5,7 +5,7 @@
 // Atualização: 16 Ago 2023
 // Compilador:  Visual C++ 2022
 //
-// Descrição:   Testa a classe Font com exibição de texto com diversas fontes.
+// Descrição:   POPBALLOONS.
 //
 **********************************************************************************/
 
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <random>
 #include "Level2.h"
+#include "Vitoria.h"
 
 Scene* PopBalloons::scene;
 std::random_device rd;
@@ -27,8 +28,12 @@ void PopBalloons::Init()
 {
     balloonAudio = new Audio();
     balloonAudio->Add(POPBALLOON_, "Resources/PopBalloon.wav");
+    frames = 0;
+    child = 0;
     audio = new Audio();
     audio->Add(MENUAUDIO, "Resources/game_thame.wav");
+    audio->Add(LAUGHT, "Resources/laugh_witch.wav");
+    audio->Add(CHILDS, "Resources/child.wav");
     
     Balloon::pontuacao = 0;
     Player::life = 5;
@@ -58,7 +63,7 @@ void PopBalloons::Init()
   
     Player* player = new Player();
     scene->Add(player, MOVING);
-
+   
     Balloon * balloon;
 
     for (int i = 0; i < 10; i++) {
@@ -66,7 +71,7 @@ void PopBalloons::Init()
         balloon->MoveTo(random(80,900), random(500,800));
         scene->Add(balloon, MOVING);
      }
-
+   
     for (int i = 0; i < 20; i++) {
       balloon = new Balloon(balloonAudio, RED, tileBalloonRed);
       balloon->MoveTo(random(80, 900), random(800, 1200));
@@ -83,6 +88,7 @@ void PopBalloons::Init()
         balloon->MoveTo(random(80, 900), random(1500, 3000));
         scene->Add(balloon, MOVING);
     }
+  
     audio->Play(MENUAUDIO);
 }
 
@@ -90,7 +96,29 @@ void PopBalloons::Init()
 
 void PopBalloons::Update()
 {
-    
+    frames++;
+    child++;
+    if (frames >= laught) {
+        lg = true;
+
+    }
+    if (lg) {
+        frames = 0;
+        audio->Play(LAUGHT);
+        lg = false;
+
+    }
+    if (child >= 800) {
+        ch = true;
+
+    }
+    if (ch) {
+        child = 0;
+        audio->Play(CHILDS);
+            ch = false;
+
+    }
+
     // sai com pressionamento do ESC
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
@@ -101,16 +129,25 @@ void PopBalloons::Update()
     if (window->KeyDown('2')) {
         Engine::Next<Level2>();
     }
+  
+    if (Balloon::quantidade == 0 || (window->KeyDown('G'))) {
+        Engine::Next<Vitoria>();
+    }
 
-    if (window->KeyDown('N') || Player::life <= 0)
+    if (window->KeyDown('N') || Player::life <= 0){
         Engine::Next<GameOver>();
+    }
+
+
 } 
 // ------------------------------------------------------------------------------
 
 void PopBalloons::Draw() {
     pontuacao = std::to_string(Balloon::pontuacao);
+    string qt = std::to_string(Balloon::quantidade);
     Color black(0.0f, 0.0f, 0.0f, 1.0f);
     placar->Draw(700, 30, placarDraw + pontuacao , black, Layer::UPPER, 0.3f);
+    placar->Draw(700, 60, qt , black, Layer::UPPER, 0.3f);
     background->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     wall->Draw(window->CenterX(), window->CenterY() + 275, Layer::MIDDLE);
     gram->Draw(window->CenterX(), window->CenterY() + 350, Layer::UPPER);

@@ -26,6 +26,7 @@ private:
 
 
 public:
+	static int quantidade; //Quantidade de balões na fase
 	static int pontuacao;
 	Balloon(Audio* bllnAudio, uint bllnType, TileSet* tset);
 	~Balloon();

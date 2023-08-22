@@ -36,6 +36,11 @@ private:
     TileSet* tileBalloonRed;
     TileSet* tileBalloonBlue;
     Audio* balloonAudio;
+    int frames;
+    int child;
+    bool ch = false;
+    int laught = 600;
+    bool lg = false;
 
 public:
     string pontuacao;
