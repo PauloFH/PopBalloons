@@ -68,10 +68,10 @@ void PopBalloons::Init()
    
     Balloon * balloon;
 
-    for (int i = 0; i < 80; i++) {
+    for (int i = 0; i < 150; i++) {
         balloon = new Balloon(balloonAudio, RED, tileBalloonRed);
-        balloon->MoveTo(random(80,900), random(500, 1000));
-        scene->Add(balloon, STATIC);
+        balloon->MoveTo(random(80,900), random(500, 3000));
+        scene->Add(balloon, MOVING);
      }
   
   
@@ -82,6 +82,7 @@ void PopBalloons::Init()
 
 void PopBalloons::Update()
 {
+
     frames++;
     child++;
     if (frames >= laught) {
@@ -112,11 +113,11 @@ void PopBalloons::Update()
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
   
-    if (Balloon::quantidade == 0 || (window->KeyDown('2'))) {
+    if ((window->KeyPress('2'))) {
         Engine::Next<Level2>();
     }
 
-    if (window->KeyDown('N') || Player::life <= 0){
+    if (window->KeyPress('N') || Player::life <= 0){
         Engine::Next<GameOver>();
     }
 
